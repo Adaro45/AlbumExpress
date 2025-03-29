@@ -13,7 +13,7 @@
   
   .testimonial-card {
     display: flex;
-    background-color: #ffffff;
+    background-color: #ebebeb;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -59,7 +59,7 @@
   .testimonial-nav {
     background-color: var(--primary);
     color: white;
-    width: 40px;
+    width: 60px;
     height: 40px;
     border-radius: 50%;
     display: flex;

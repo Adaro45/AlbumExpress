@@ -23,7 +23,7 @@
   --primary: #000fd4;
   --primary-light: #4d56ff;
   --primary-dark: #0009a3;
-  --secondary: #f5f5f7;
+  --secondary: #ebebeb00;
   --text-dark: #333333;
   --text-light: #ffffff;
   --gray-light: #f0f0f0;
@@ -42,7 +42,7 @@
 body {
   font-family: "Moderat", sans-serif;
   color: var(--text-dark);
-  background-color: #ffffff;
+  background-color: #ebebeb;
   line-height: 1.6;
 }
 
