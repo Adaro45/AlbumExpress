@@ -1,0 +1,50 @@
+.contact-page {
+    min-height: 100vh;
+  }
+  
+  .contact-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: var(--text-light);
+    padding: 4rem 0;
+    text-align: center;
+  }
+  
+  .contact-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+  
+  .contact-section {
+    padding: 5rem 0;
+  }
+  
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+  }
+  
+  .map-section {
+    line-height: 0;
+  }
+  
+  @media (max-width: 992px) {
+    .contact-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .contact-hero h1 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  

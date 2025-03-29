@@ -1,0 +1,56 @@
+.cta-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: var(--text-light);
+    padding: 5rem 0;
+    text-align: center;
+  }
+  
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .cta-buttons .btn-outline {
+    border-color: var(--text-light);
+    color: var(--text-light);
+  }
+  
+  .cta-buttons .btn-outline:hover {
+    background-color: var(--text-light);
+    color: var(--primary);
+  }
+  
+  @media (max-width: 768px) {
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .cta-buttons .btn {
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+  
+  

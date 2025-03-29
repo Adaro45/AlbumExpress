@@ -1,0 +1,37 @@
+.about-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: var(--text-light);
+    padding: 6rem 0;
+    text-align: center;
+  }
+  
+  .about-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .about-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-hero p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+  }
+  
+  @media (max-width: 768px) {
+    .about-hero {
+      padding: 4rem 0;
+    }
+  
+    .about-hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .about-hero p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  

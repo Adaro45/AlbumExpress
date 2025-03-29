@@ -1,0 +1,35 @@
+.products-page {
+    min-height: 100vh;
+  }
+  
+  .products-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: var(--text-light);
+    padding: 4rem 0;
+    text-align: center;
+  }
+  
+  .products-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .products-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+  
+  .products-section {
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .products-hero h1 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  
