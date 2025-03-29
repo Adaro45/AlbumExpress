@@ -15,31 +15,31 @@ const themeItems = [
   {
     id: 1,
     name: "Elegancia Clásica",
-    image: "./images/place-holder-profesional-minimalista.jpg",
+    image: "/images/place-holder-profesional-minimalista.jpg",
     category: "wedding",
   },
   {
     id: 2,
     name: "Sueño de Quinceañera",
-    image: "./images/place-holder-quinceanera-deluxe.jpg",
+    image: "/images/place-holder-quinceanera-deluxe.jpg",
     category: "quinceanera",
   },
   {
     id: 3,
     name: "Momentos Familiares",
-    image: "./images/place-holder-familiar-rustico.jpg",
+    image: "/images/place-holder-familiar-rustico.jpg",
     category: "family",
   },
   {
     id: 4,
     name: "Aventuras de Viaje",
-    image: "./images/place-holder-viajes.jpg",
+    image: "/images/place-holder-viajes.jpg",
     category: "travel",
   },
   {
     id: 5,
     name: "Boda Rústica",
-    image: "./images/place-holder-boda-vintage.jpg",
+    image: "/images/place-holder-boda-vintage.jpg",
     category: "wedding",
   },
   {

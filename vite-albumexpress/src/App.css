@@ -20,10 +20,13 @@
 }
 
 :root {
-  --primary: #000fd4;
-  --primary-light: #4d56ff;
-  --primary-dark: #0009a3;
+  --primary: #0046d4;
+  --primary-light: #3a6fff;
+  --primary-dark: #0033a3;
   --secondary: #ebebeb00;
+  --accent: #ff6b00;
+  --accent-light: #ff8c3f;
+  --accent-dark: #e05a00;
   --text-dark: #333333;
   --text-light: #ffffff;
   --gray-light: #f0f0f0;
@@ -66,12 +69,14 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--primary);
-  color: var(--text-light);
+  background-color: var(--gray-light);
+  color: var(--primary-dark);
 }
 
 .btn-primary:hover {
   background-color: var(--primary-dark);
+  color: var(--gray-light);
+
   transform: scale(1.05);
 }
 
@@ -85,7 +90,6 @@ body {
   background-color: var(--primary);
   color: var(--text-light);
   transform: scale(1.05);
-
 }
 
 .section {
@@ -97,6 +101,7 @@ body {
   font-weight: 700;
   margin-bottom: 2rem;
   text-align: center;
+  color: var(--primary-dark);
 }
 
 .text-center {

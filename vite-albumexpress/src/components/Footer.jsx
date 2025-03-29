@@ -71,16 +71,32 @@ const Footer = () => {
                 </li>
               </ul>
               <div className="social-links">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fab fa-instagram"></i>
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fab fa-twitter"></i>
                 </a>
-                <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://pinterest.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fab fa-pinterest-p"></i>
                 </a>
               </div>
@@ -88,8 +104,11 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* footer-bottom contendrá el texto &copy; y el texto grande */}
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} AlbumExpress. Todos los derechos reservados.</p>
+          {/* Texto grande pegado al fondo */}
+          <img src="/images/Brandbottom.png" alt="AlbumExpress Logo" className="footer-brand"></img>
         </div>
       </div>
     </footer>
@@ -97,4 +116,3 @@ const Footer = () => {
 }
 
 export default Footer
-
