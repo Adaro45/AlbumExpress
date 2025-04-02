@@ -33,42 +33,30 @@ const ProductForm = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch categories
-        const categoriesResponse = await categoryApi.getAll()
-        setCategories(categoriesResponse.data)
-
-        // If edit mode, fetch product data
-        if (isEditMode && slug) {
-          const productResponse = await productApi.getById(slug)
-          const product = productResponse.data
-
-          setFormData({
-            name: product.name,
-            description: product.description,
-            price: product.price.toString(),
-            category: product.category.toString(),
-            material: product.material,
-            pages: product.pages ? product.pages.toString() : "",
-            size: product.size,
-            extras: product.extras.map((extra) => extra.feature),
-            featured: product.featured,
-            show_on_homepage: product.show_on_homepage,
-            show_on_landing: product.show_on_landing,
-          })
-
-          setImagePreview(product.image)
+        const categoriesResponse = await categoryApi.getAll();
+        // Comprueba si la respuesta es un array o contiene un array en "results"
+        if (Array.isArray(categoriesResponse.data)) {
+          setCategories(categoriesResponse.data);
+        } else if (
+          categoriesResponse.data &&
+          Array.isArray(categoriesResponse.data.results)
+        ) {
+          setCategories(categoriesResponse.data.results);
+        } else {
+          console.error("Formato de datos inesperado:", categoriesResponse.data);
+          setCategories([]); // Asigna un array vacío para evitar el error
         }
-
-        setLoading(false)
+        setLoading(false); // <== Aquí se actualiza el estado
       } catch (error) {
-        console.error("Error fetching data:", error)
-        toast.error("Error al cargar los datos")
-        setLoading(false)
+        console.error("Error fetching data:", error);
+        toast.error("Error al cargar los datos");
+        setCategories([]); // En caso de error, asigna un array vacío
+        setLoading(false); // <== Y también aquí se asegura que se termine el loading
       }
-    }
-
-    fetchData()
-  }, [slug, isEditMode])
+    };
+  
+    fetchData();
+  }, [slug, isEditMode]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target

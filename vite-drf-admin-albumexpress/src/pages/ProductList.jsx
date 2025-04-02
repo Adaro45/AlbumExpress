@@ -172,7 +172,7 @@ const ProductList = () => {
                   </td>
                   <td>{product.name}</td>
                   <td>{product.category_name || "Sin categoría"}</td>
-                  <td>${product.price ? product.price.toFixed(2) : "0.00"}</td>
+                  <td>${!isNaN(parseFloat(product.price)) ? parseFloat(product.price).toFixed(2) : "0.00"}</td>
                   <td>
                     <button
                       className={`toggle-btn ${product.featured ? "active" : ""}`}
