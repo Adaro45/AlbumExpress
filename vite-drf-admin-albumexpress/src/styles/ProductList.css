@@ -1,0 +1,134 @@
+.product-list-page {
+    padding-bottom: 2rem;
+  }
+  
+  .filters {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .search-box {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .search-box input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .search-box i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+  }
+  
+  .product-table-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .product-table th,
+  .product-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-light);
+  }
+  
+  .product-table th {
+    background-color: var(--gray-light);
+    font-weight: 600;
+  }
+  
+  .product-image {
+    width: 80px;
+  }
+  
+  .product-image img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .toggle-btn {
+    background-color: var(--gray-light);
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+  }
+  
+  .toggle-btn.active {
+    background-color: var(--primary);
+    color: white;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-btn {
+    background-color: var(--primary-light);
+    color: white;
+    text-decoration: none;
+  }
+  
+  .edit-btn:hover {
+    background-color: var(--primary);
+  }
+  
+  .delete-btn {
+    background-color: var(--error);
+    color: white;
+    border: none;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  .no-results {
+    text-align: center;
+    padding: 3rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .no-results p {
+    color: #666;
+    font-size: 1.2rem;
+  }
+  
+  

@@ -1,0 +1,119 @@
+.dashboard h1 {
+    margin-bottom: 2rem;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .stat-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+  }
+  
+  .stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+  
+  .stat-icon.featured {
+    background-color: #ff9800;
+  }
+  
+  .stat-icon.homepage {
+    background-color: #4caf50;
+  }
+  
+  .stat-icon.landing {
+    background-color: #e91e63;
+  }
+  
+  .stat-icon.categories {
+    background-color: #9c27b0;
+  }
+  
+  .stat-content {
+    flex: 1;
+  }
+  
+  .stat-content h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #666;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-block;
+  }
+  
+  .stat-link:hover {
+    text-decoration: underline;
+  }
+  
+  .quick-actions {
+    margin-top: 2rem;
+  }
+  
+  .quick-actions h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .action-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .action-card i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  
+  .action-card span {
+    font-weight: 500;
+  }
+  
+  

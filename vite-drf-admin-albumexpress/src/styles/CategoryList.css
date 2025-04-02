@@ -1,0 +1,42 @@
+.category-list-page {
+    padding-bottom: 2rem;
+  }
+  
+  .category-table-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .category-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .category-table th,
+  .category-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-light);
+  }
+  
+  .category-table th {
+    background-color: var(--gray-light);
+    font-weight: 600;
+  }
+  
+  .no-results {
+    text-align: center;
+    padding: 3rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .no-results p {
+    color: #666;
+    font-size: 1.2rem;
+  }
+  
+  
