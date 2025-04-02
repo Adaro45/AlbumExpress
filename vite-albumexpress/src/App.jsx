@@ -1,4 +1,7 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+"use client"
+
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
+import { useEffect } from "react"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import HomePage from "./pages/HomePage"
@@ -11,10 +14,24 @@ import CheckoutPage from "./pages/CheckoutPage"
 import { CartProvider } from "./context/CartContext"
 import "./App.css"
 
+// Componente para restaurar el scroll en cada cambio de ruta
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    // Asegurar que el scroll esté habilitado
+    document.body.style.overflow = ""
+  }, [pathname])
+
+  return null
+}
+
 function App() {
   return (
     <CartProvider>
       <Router>
+        <ScrollToTop />
         <div className="app">
           <Navbar />
           <Routes>

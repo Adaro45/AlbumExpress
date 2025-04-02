@@ -76,7 +76,6 @@ body {
 .btn-primary:hover {
   background-color: var(--primary-dark);
   color: var(--gray-light);
-
   transform: scale(1.05);
 }
 
@@ -128,6 +127,61 @@ body {
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .btn {
+    padding: 0.7rem 1.2rem;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    gap: 1rem;
+  }
+}
+
+/* Asegurar que las imágenes sean responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mejorar la accesibilidad para dispositivos táctiles */
+@media (hover: none) {
+  .btn:hover {
+    transform: none;
+  }
+
+  .product-card:hover {
+    transform: none;
+  }
+
+  .product-card:active {
+    transform: translateY(-5px);
+  }
+
+  .btn:active {
+    transform: scale(0.98);
   }
 }
 

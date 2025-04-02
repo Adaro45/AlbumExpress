@@ -1,26 +1,23 @@
-"use client";
+"use client"
 
-import { useEffect } from "react";
-import ContactForm from "../components/ContactForm";
-import ContactInfo from "../components/ContactInfo";
-import CTASection from "../components/CTASection";
-import "./styles/ContactPage.css";
+import { useEffect } from "react"
+import ContactForm from "../components/ContactForm"
+import ContactInfo from "../components/ContactInfo"
+import CTASection from "../components/CTASection"
+import "./styles/ContactPage.css"
 
 const ContactPage = () => {
-  // Scroll al inicio cuando se carga la página
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    window.scrollTo(0, 0)
+    document.body.style.overflow = ""
+  }, [])
 
   return (
     <main className="contact-page">
       <div className="contact-hero">
         <div className="container">
           <h1>Contáctanos</h1>
-          <p>
-            Estamos aquí para ayudarte a crear el álbum perfecto para tus
-            momentos especiales
-          </p>
+          <p>Estamos aquí para ayudarte a crear el álbum perfecto para tus momentos especiales</p>
         </div>
       </div>
 
@@ -39,15 +36,16 @@ const ContactPage = () => {
           width="100%"
           height="400px"
           style={{ border: 0, display: "block", margin: "0 auto" }}
-          allowfullscreen="false"
+          allowFullScreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </section>
 
       <CTASection />
     </main>
-  );
-};
+  )
+}
 
-export default ContactPage;
+export default ContactPage
+

@@ -12,8 +12,17 @@ const Navbar = () => {
   const { cartCount } = useCart()
   const location = useLocation()
 
+  // Modificar la función toggleMenu para manejar correctamente el scroll
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
+    const newMenuState = !isMenuOpen
+    setIsMenuOpen(newMenuState)
+
+    // Solo bloquear el scroll cuando el menú está abierto
+    if (newMenuState) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
   }
 
   // Detectar scroll para cambiar estilo del navbar
@@ -30,10 +39,18 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Cerrar menú al cambiar de ruta
+  // Cerrar menú al cambiar de ruta y restaurar el scroll
   useEffect(() => {
     setIsMenuOpen(false)
+    document.body.style.overflow = ""
   }, [location])
+
+  // Asegurar que el scroll se restaure al desmontar el componente
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [])
 
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
@@ -46,16 +63,24 @@ const Navbar = () => {
         <div className={`navbar-menu ${isMenuOpen ? "active" : ""}`}>
           <ul className="navbar-links">
             <li className={location.pathname === "/" ? "active" : ""}>
-              <Link to="/">Inicio</Link>
+              <Link to="/" onClick={() => setIsMenuOpen(false)}>
+                Inicio
+              </Link>
             </li>
             <li className={location.pathname.includes("/productos") ? "active" : ""}>
-              <Link to="/productos">Productos</Link>
+              <Link to="/productos" onClick={() => setIsMenuOpen(false)}>
+                Productos
+              </Link>
             </li>
             <li className={location.pathname === "/nosotros" ? "active" : ""}>
-              <Link to="/nosotros">Nosotros</Link>
+              <Link to="/nosotros" onClick={() => setIsMenuOpen(false)}>
+                Nosotros
+              </Link>
             </li>
             <li className={location.pathname === "/contacto" ? "active" : ""}>
-              <Link to="/contacto">Contacto</Link>
+              <Link to="/contacto" onClick={() => setIsMenuOpen(false)}>
+                Contacto
+              </Link>
             </li>
           </ul>
         </div>
@@ -70,7 +95,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="mobile-toggle" onClick={toggleMenu}>
+        <div className={`mobile-toggle ${isMenuOpen ? "active" : ""}`} onClick={toggleMenu}>
           <span></span>
           <span></span>
           <span></span>

@@ -143,6 +143,7 @@
     justify-content: flex-start;
     padding-top: 2rem;
     z-index: 999;
+    overflow-y: auto; /* Permitir scroll dentro del menú si es necesario */
   }
 
   .navbar-menu.active {
@@ -180,6 +181,21 @@
 
   .mobile-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+/* Ajustar para dispositivos muy pequeños */
+@media (max-width: 360px) {
+  .navbar-logo span {
+    font-size: 1.2rem;
+  }
+
+  .navbar-logo img {
+    height: 30px;
+  }
+
+  .cart-icon {
+    margin-right: 0.5rem;
   }
 }
 

@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import "./styles/HeroSection.css"
@@ -7,11 +5,9 @@ import "./styles/HeroSection.css"
 const HeroSection = () => {
   const [albumOrder, setAlbumOrder] = useState([1, 2, 3])
 
-  // Efecto para rotar las imágenes cada 5 segundos
   useEffect(() => {
     const rotateInterval = setInterval(() => {
       setAlbumOrder((prevOrder) => {
-        // Rotar el orden: el último pasa al primero
         const newOrder = [...prevOrder]
         const last = newOrder.pop()
         newOrder.unshift(last)
@@ -55,7 +51,7 @@ const HeroSection = () => {
         </div>
       </div>
       <div className="hero-wave">
-        <svg xmlns="http://www.w3.org/2000/svg" className="wave" viewBox="0 0 1440 220">
+        <svg xmlns="http://www.w3.org/2000/svg" className="wave" viewBox="0 0 1440 200">
           <path
             fill="#ebebeb"
             fillOpacity="1"
