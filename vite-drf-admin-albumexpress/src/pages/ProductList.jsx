@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 import { productApi } from "../services/api"
@@ -11,13 +9,8 @@ const ProductList = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [searchParams] = useSearchParams()
-  const [filter, setFilter] = useState({
-    category: searchParams.get("category") || "",
-    featured: searchParams.get("featured") === "true",
-    homepage: searchParams.get("homepage") === "true",
-    landing: searchParams.get("landing") === "true",
-    search: "",
-  })
+  const [searchText, setSearchText] = useState("")
+  
 
   useEffect(() => {
     fetchProducts()
@@ -28,14 +21,14 @@ const ProductList = () => {
       setLoading(true)
       setError(null)
 
-      // Build query params
-      const params = new URLSearchParams()
-      if (filter.category) params.append("category", filter.category)
-      if (filter.featured) params.append("featured", "true")
-      if (filter.homepage) params.append("show_on_homepage", "true")
-      if (filter.landing) params.append("show_on_landing", "true")
+  // Construir objeto de consulta a partir de searchParams
+  const query = {}
+  if (searchParams.get("category")) query.category = searchParams.get("category")
+  if (searchParams.get("featured") === "true") query.featured = "true"
+  if (searchParams.get("homepage") === "true") query.show_on_homepage = "true"
+  if (searchParams.get("landing") === "true") query.show_on_landing = "true"
 
-      const response = await productApi.getAll()
+  const response = await productApi.getAll({ params: query })
 
       // Verificar la estructura de la respuesta
       if (response.data && Array.isArray(response.data)) {
@@ -105,14 +98,14 @@ const ProductList = () => {
   }
 
   const handleSearch = (e) => {
-    setFilter({ ...filter, search: e.target.value })
-  }
+      setSearchText(e.target.value)
+    }
 
-  const filteredProducts = products.filter(
-    (product) =>
-      product.name.toLowerCase().includes(filter.search.toLowerCase()) ||
-      (product.category_name && product.category_name.toLowerCase().includes(filter.search.toLowerCase())),
-  )
+    const filteredProducts = products.filter(
+        (product) =>
+          product.name.toLowerCase().includes(searchText.toLowerCase()) ||
+          (product.category_name && product.category_name.toLowerCase().includes(searchText.toLowerCase()))
+      )
 
   if (loading) {
     return <div className="loading">Cargando productos...</div>
@@ -140,7 +133,7 @@ const ProductList = () => {
 
       <div className="filters">
         <div className="search-box">
-          <input type="text" placeholder="Buscar productos..." value={filter.search} onChange={handleSearch} />
+        <input type="text" placeholder="Buscar productos..." value={searchText} onChange={handleSearch} />
           <i className="fas fa-search"></i>
         </div>
       </div>
