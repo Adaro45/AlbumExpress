@@ -1,9 +1,58 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { getFeaturedProducts } from "../data/products"
+import { clientProductApi } from "../services/api"
 import "./styles/FeaturedProducts.css"
 
 const FeaturedProducts = () => {
-  const products = getFeaturedProducts()
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    const fetchFeaturedProducts = async () => {
+      try {
+        setLoading(true)
+        const response = await clientProductApi.getFeatured()
+        setProducts(response.data)
+        setLoading(false)
+      } catch (err) {
+        console.error("Error fetching featured products:", err)
+        setError("No se pudieron cargar los productos destacados")
+        setLoading(false)
+      }
+    }
+
+    fetchFeaturedProducts()
+  }, [])
+
+  if (loading) {
+    return (
+      <section className="featured-section section">
+        <div className="container">
+          <h2 className="section-title">Nuestros Productos Destacados</h2>
+          <div className="loading-container">
+            <div className="loading-spinner"></div>
+            <p>Cargando productos destacados...</p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="featured-section section">
+        <div className="container">
+          <h2 className="section-title">Nuestros Productos Destacados</h2>
+          <div className="error-container">
+            <p>{error}</p>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section className="featured-section section">
@@ -16,13 +65,13 @@ const FeaturedProducts = () => {
             <div className="product-card" key={product.id}>
               <div className="product-image">
                 <img src={product.image || "/placeholder.svg"} alt={product.name} />
-                <div className="product-category">{product.category}</div>
+                <div className="product-category">{product.category_name || "Álbum"}</div>
               </div>
               <div className="product-info">
                 <h3>{product.name}</h3>
-                <p className="product-price">${product.price.toFixed(2)} MXN</p>
+                <p className="product-price">${Number.parseFloat(product.price).toFixed(2)} MXN</p>
                 <div className="product-actions">
-                  <Link to={`/productos/${product.id}`} className="btn btn-primary">
+                  <Link to={`/productos/${product.slug}`} className="btn btn-primary">
                     Ver Detalles
                   </Link>
                   <button className="btn btn-outline">Agregar</button>

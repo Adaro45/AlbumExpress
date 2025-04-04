@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import { useCart } from "../context/CartContext"
-import { getProductById } from "../data/products"
+import { clientProductApi } from "../services/api"
 import "./styles/ProductDetailPage.css"
 
 const ProductDetailPage = () => {
@@ -11,23 +11,28 @@ const ProductDetailPage = () => {
   const [product, setProduct] = useState(null)
   const [quantity, setQuantity] = useState(1)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
   const { addToCart } = useCart()
 
   useEffect(() => {
     // Scroll al inicio cuando se carga la página
     window.scrollTo(0, 0)
 
-    // Simular carga de datos
-    setLoading(true)
-
-    // Buscar el producto por ID
-    const foundProduct = getProductById(id)
-
-    if (foundProduct) {
-      setProduct(foundProduct)
+    const fetchProduct = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+        const response = await clientProductApi.getById(id)
+        setProduct(response.data)
+        setLoading(false)
+      } catch (err) {
+        console.error("Error fetching product:", err)
+        setError("No se pudo cargar el producto")
+        setLoading(false)
+      }
     }
 
-    setLoading(false)
+    fetchProduct()
   }, [id])
 
   const handleQuantityChange = (e) => {
@@ -52,7 +57,7 @@ const ProductDetailPage = () => {
     )
   }
 
-  if (!product) {
+  if (error || !product) {
     return (
       <div className="product-not-found">
         <div className="container">
@@ -64,6 +69,14 @@ const ProductDetailPage = () => {
         </div>
       </div>
     )
+  }
+
+  // Obtener los detalles del producto
+  const details = product.details || {
+    material: product.material || "No especificado",
+    pages: product.pages || "No especificado",
+    size: product.size || "No especificado",
+    extras: product.extras || [],
   }
 
   return (
@@ -80,7 +93,7 @@ const ProductDetailPage = () => {
 
           <div className="product-detail-info">
             <h1>{product.name}</h1>
-            <p className="product-detail-price">${product.price.toFixed(2)} MXN</p>
+            <p className="product-detail-price">${Number.parseFloat(product.price).toFixed(2)} MXN</p>
             <div className="product-detail-description">
               <p>{product.description}</p>
             </div>
@@ -89,15 +102,15 @@ const ProductDetailPage = () => {
               <h3>Especificaciones</h3>
               <ul>
                 <li>
-                  <strong>Material:</strong> {product.details.material}
+                  <strong>Material:</strong> {details.material}
                 </li>
-                {product.details.pages && (
+                {details.pages && (
                   <li>
-                    <strong>Páginas:</strong> {product.details.pages}
+                    <strong>Páginas:</strong> {details.pages}
                   </li>
                 )}
                 <li>
-                  <strong>Tamaño:</strong> {product.details.size}
+                  <strong>Tamaño:</strong> {details.size}
                 </li>
               </ul>
             </div>
@@ -105,11 +118,17 @@ const ProductDetailPage = () => {
             <div className="product-detail-extras">
               <h3>Características</h3>
               <ul>
-                {product.details.extras.map((extra, index) => (
-                  <li key={index}>
-                    <i className="fas fa-check"></i> {extra}
+                {Array.isArray(details.extras) && details.extras.length > 0 ? (
+                  details.extras.map((extra, index) => (
+                    <li key={index}>
+                      <i className="fas fa-check"></i> {extra}
+                    </li>
+                  ))
+                ) : (
+                  <li>
+                    <i className="fas fa-info-circle"></i> No hay características adicionales especificadas
                   </li>
-                ))}
+                )}
               </ul>
             </div>
 
@@ -138,15 +157,16 @@ const ProductDetailPage = () => {
             <div className="product-detail-meta">
               <p>
                 <strong>Categoría:</strong>{" "}
-                {product.category === "wedding"
-                  ? "Bodas"
-                  : product.category === "quinceanera"
-                    ? "Quinceañeras"
-                    : product.category === "family"
-                      ? "Familias"
-                      : product.category === "professional"
-                        ? "Profesional"
-                        : "Accesorios"}
+                {product.category_name ||
+                  (product.category === "wedding"
+                    ? "Bodas"
+                    : product.category === "quinceanera"
+                      ? "Quinceañeras"
+                      : product.category === "family"
+                        ? "Familias"
+                        : product.category === "professional"
+                          ? "Profesional"
+                          : "Accesorios")}
               </p>
             </div>
           </div>

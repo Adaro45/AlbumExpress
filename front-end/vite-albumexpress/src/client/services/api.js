@@ -33,7 +33,7 @@ api.interceptors.response.use(
 // API para productos (cliente)
 export const clientProductApi = {
   getAll: (params = {}) => api.get("/api/products/", { params }),
-  getById: (id) => api.get(`/api/products/${id}/`),
+  getById: (slug) => api.get(`/api/products/${slug}/`),
   getFeatured: () => api.get("/api/products/featured/"),
   getByCategory: (category) => api.get(`/api/products/category/${category}/`),
   getHomepage: () => api.get("/api/products/homepage/"),

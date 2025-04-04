@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 import toast from "react-hot-toast"
 import "../styles/Login.css"
@@ -11,15 +11,19 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
 
-  const { login, isAuthenticated } = useAuth()
+  const { login, isAuthenticated, loading: authLoading } = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
+
+  // Obtener la URL de redirección si existe
+  const from = location.state?.from?.pathname || "/admin"
 
   // Usar useEffect para la redirección en lugar de hacerlo durante el renderizado
   useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/")
+    if (isAuthenticated && !authLoading) {
+      navigate(from, { replace: true })
     }
-  }, [isAuthenticated, navigate])
+  }, [isAuthenticated, authLoading, navigate, from])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -66,8 +70,8 @@ const Login = () => {
             />
           </div>
 
-          <button type="submit" className="login-btn" disabled={loading}>
-            {loading ? "Iniciando sesión..." : "Iniciar Sesión"}
+          <button type="submit" className="login-btn" disabled={loading || authLoading}>
+            {loading || authLoading ? "Iniciando sesión..." : "Iniciar Sesión"}
           </button>
         </form>
       </div>

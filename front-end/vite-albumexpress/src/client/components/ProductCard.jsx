@@ -20,9 +20,9 @@ const ProductCard = ({ product }) => {
       </div>
       <div className="product-info">
         <h3>{product.name}</h3>
-        <p className="product-price">${product.price.toFixed(2)} MXN</p>
+        <p className="product-price">${Number.parseFloat(product.price).toFixed(2)} MXN</p>
         <div className="product-actions">
-          <Link to={`/productos/${product.id}`} className="btn btn-primary">
+          <Link to={`/productos/${product.slug}`} className="btn btn-primary">
             Ver Detalles
           </Link>
           <button className="btn btn-outline" onClick={handleAddToCart}>

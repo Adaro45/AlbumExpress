@@ -30,12 +30,21 @@ export const AuthProvider = ({ children }) => {
           api.defaults.headers.common["Authorization"] = `Token ${token}`
 
           // Get user info
-          const response = await api.get("/api-auth/user/")
-          setUser(response.data)
-          setIsAuthenticated(true)
+          try {
+            const response = await api.get("/api-auth/user/")
+            setUser(response.data)
+            setIsAuthenticated(true)
+          } catch (userError) {
+            console.error("Error obteniendo información del usuario:", userError)
+            // Si no podemos obtener la información del usuario pero tenemos token,
+            // asumimos que el usuario está autenticado con información básica
+            setUser({ username: "Admin" })
+            setIsAuthenticated(true)
+          }
         } catch (error) {
           console.error("Authentication error:", error)
           localStorage.removeItem("token")
+          delete api.defaults.headers.common["Authorization"]
         }
       }
 
@@ -47,6 +56,8 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
+      setLoading(true)
+
       // Intenta usar el endpoint alternativo para obtener el token
       const response = await api.post("/api-token-auth/", { username, password })
 
@@ -65,12 +76,14 @@ export const AuthProvider = ({ children }) => {
           const userResponse = await api.get("/api-auth/user/")
           setUser(userResponse.data)
           setIsAuthenticated(true)
+          setLoading(false)
           return
         } catch (userError) {
           console.error("Error obteniendo información del usuario:", userError)
           // Si no podemos obtener la información del usuario, creamos un usuario básico
           setUser({ username })
           setIsAuthenticated(true)
+          setLoading(false)
           return
         }
       }
@@ -89,9 +102,11 @@ export const AuthProvider = ({ children }) => {
       const userResponse = await api.get("/api-auth/user/")
       setUser(userResponse.data)
       setIsAuthenticated(true)
+      setLoading(false)
     } catch (error) {
       console.error("Login error:", error)
       toast.error("Error de inicio de sesión. Verifica tus credenciales.")
+      setLoading(false)
       throw error
     }
   }

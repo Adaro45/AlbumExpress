@@ -28,8 +28,19 @@ import "./App.css"
 
 // Componente para proteger rutas de administración
 const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated } = useAuth()
+  const { isAuthenticated, loading } = useAuth()
 
+  // Mostrar un indicador de carga mientras se verifica la autenticación
+  if (loading) {
+    return (
+      <div className="auth-loading">
+        <div className="loading-spinner"></div>
+        <p>Verificando autenticación...</p>
+      </div>
+    )
+  }
+
+  // Redirigir a login si no está autenticado
   if (!isAuthenticated) {
     return <Navigate to="/admin/login" replace />
   }
@@ -66,12 +77,12 @@ function App() {
               }
             >
               <Route index element={<Dashboard />} />
-              <Route path="products" element={<ProductList />} />
-              <Route path="products/new" element={<ProductForm />} />
-              <Route path="products/:slug" element={<ProductForm />} />
-              <Route path="categories" element={<CategoryList />} />
-              <Route path="categories/new" element={<CategoryForm />} />
-              <Route path="categories/:slug" element={<CategoryForm />} />
+              <Route path="/admin/products" element={<ProductList />} />
+              <Route path="/admin/products/new" element={<ProductForm />} />
+              <Route path="/admin/products/:slug" element={<ProductForm />} />
+              <Route path="/admin/categories" element={<CategoryList />} />
+              <Route path="/admin/categories/new" element={<CategoryForm />} />
+              <Route path="/admin/categories/:slug" element={<CategoryForm />} />
             </Route>
           </Routes>
         </Router>

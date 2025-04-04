@@ -1,16 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { clientCategoryApi } from "../services/api"
 import "./styles/ProductFilter.css"
-
-const categories = [
-  { id: "all", name: "Todos los Productos" },
-  { id: "wedding", name: "Álbumes de Boda" },
-  { id: "quinceanera", name: "Álbumes de Quinceañera" },
-  { id: "family", name: "Álbumes Familiares" },
-  { id: "professional", name: "Álbumes Profesionales" },
-  { id: "accessories", name: "Accesorios" },
-]
 
 const sortOptions = [
   { id: "featured", name: "Destacados" },
@@ -21,6 +13,33 @@ const sortOptions = [
 
 const ProductFilter = ({ activeCategory, setActiveCategory, activeSort, setActiveSort }) => {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
+  const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await clientCategoryApi.getAll()
+
+        // Verificar la estructura de la respuesta
+        if (Array.isArray(response.data)) {
+          setCategories(response.data)
+        } else if (response.data && Array.isArray(response.data.results)) {
+          setCategories(response.data.results)
+        } else {
+          console.error("Formato de respuesta inesperado:", response.data)
+          setCategories([])
+        }
+      } catch (err) {
+        console.error("Error fetching categories:", err)
+        setCategories([])
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchCategories()
+  }, [])
 
   return (
     <div className="product-filter">
@@ -32,16 +51,23 @@ const ProductFilter = ({ activeCategory, setActiveCategory, activeSort, setActiv
         <div className="filter-section">
           <h3>Categorías</h3>
           <ul className="category-list">
-            {categories.map((category) => (
-              <li key={category.id}>
-                <button
-                  className={activeCategory === category.id ? "active" : ""}
-                  onClick={() => setActiveCategory(category.id)}
-                >
-                  {category.name}
-                </button>
-              </li>
-            ))}
+            <li>
+              <button className={activeCategory === "all" ? "active" : ""} onClick={() => setActiveCategory("all")}>
+                Todos los Productos
+              </button>
+            </li>
+
+            {!loading &&
+              categories.map((category) => (
+                <li key={category.id}>
+                  <button
+                    className={activeCategory === category.code ? "active" : ""}
+                    onClick={() => setActiveCategory(category.code)}
+                  >
+                    {category.name}
+                  </button>
+                </li>
+              ))}
           </ul>
         </div>
 

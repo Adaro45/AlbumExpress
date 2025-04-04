@@ -4,11 +4,15 @@
   
   .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(auto, 1fr));
     gap: 1.5rem;
     margin-bottom: 3rem;
   }
-  
+  .stats-card{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
   .stat-card {
     background-color: #fff;
     border-radius: 8px;
@@ -16,6 +20,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
+    width: 300px;
   }
   
   .stat-icon {

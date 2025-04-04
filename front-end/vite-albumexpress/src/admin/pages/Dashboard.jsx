@@ -61,12 +61,13 @@ const Dashboard = () => {
           <div className="stat-content">
             <h3>Total de Productos</h3>
             <p className="stat-value">{stats.totalProducts}</p>
-            <Link to="/products" className="stat-link">
+            <Link to="/admin/products" className="stat-link">
               Ver todos
             </Link>
           </div>
         </div>
 
+        <div className="stats-card">
         <div className="stat-card">
           <div className="stat-icon featured">
             <i className="fas fa-star"></i>
@@ -74,9 +75,6 @@ const Dashboard = () => {
           <div className="stat-content">
             <h3>Productos Destacados</h3>
             <p className="stat-value">{stats.featuredProducts}</p>
-            <Link to="/products?featured=true" className="stat-link">
-              Ver destacados
-            </Link>
           </div>
         </div>
 
@@ -87,9 +85,6 @@ const Dashboard = () => {
           <div className="stat-content">
             <h3>En Página Principal</h3>
             <p className="stat-value">{stats.homepageProducts}</p>
-            <Link to="/products?homepage=true" className="stat-link">
-              Ver productos
-            </Link>
           </div>
         </div>
 
@@ -100,10 +95,8 @@ const Dashboard = () => {
           <div className="stat-content">
             <h3>En Landing Page</h3>
             <p className="stat-value">{stats.landingProducts}</p>
-            <Link to="/products?landing=true" className="stat-link">
-              Ver productos
-            </Link>
           </div>
+        </div>
         </div>
 
         <div className="stat-card">
@@ -113,7 +106,7 @@ const Dashboard = () => {
           <div className="stat-content">
             <h3>Categorías</h3>
             <p className="stat-value">{stats.categories}</p>
-            <Link to="/categories" className="stat-link">
+            <Link to="/admin/categories" className="stat-link">
               Ver categorías
             </Link>
           </div>
@@ -123,12 +116,12 @@ const Dashboard = () => {
       <div className="quick-actions">
         <h2>Acciones Rápidas</h2>
         <div className="actions-grid">
-          <Link to="/products/new" className="action-card">
+          <Link to="/admin/products/new" className="action-card">
             <i className="fas fa-plus"></i>
             <span>Nuevo Producto</span>
           </Link>
 
-          <Link to="/categories/new" className="action-card">
+          <Link to="/admin/categories/new" className="action-card">
             <i className="fas fa-folder-plus"></i>
             <span>Nueva Categoría</span>
           </Link>

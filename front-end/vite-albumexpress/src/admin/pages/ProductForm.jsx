@@ -29,34 +29,73 @@ const ProductForm = () => {
   const [imagePreview, setImagePreview] = useState("")
   const [categories, setCategories] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const categoriesResponse = await categoryApi.getAll();
-        // Comprueba si la respuesta es un array o contiene un array en "results"
+        // Obtener categorías
+        const categoriesResponse = await categoryApi.getAll()
+
+        // Comprobar si la respuesta es un array o contiene un array en "results"
         if (Array.isArray(categoriesResponse.data)) {
-          setCategories(categoriesResponse.data);
-        } else if (
-          categoriesResponse.data &&
-          Array.isArray(categoriesResponse.data.results)
-        ) {
-          setCategories(categoriesResponse.data.results);
+          setCategories(categoriesResponse.data)
+        } else if (categoriesResponse.data && Array.isArray(categoriesResponse.data.results)) {
+          setCategories(categoriesResponse.data.results)
         } else {
-          console.error("Formato de datos inesperado:", categoriesResponse.data);
-          setCategories([]); // Asigna un array vacío para evitar el error
+          console.error("Formato de datos inesperado:", categoriesResponse.data)
+          setCategories([])
+          setError("Error al cargar las categorías")
         }
-        setLoading(false); // <== Aquí se actualiza el estado
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        toast.error("Error al cargar los datos");
-        setCategories([]); // En caso de error, asigna un array vacío
-        setLoading(false); // <== Y también aquí se asegura que se termine el loading
+
+        // Si estamos en modo edición, cargar los datos del producto
+        if (isEditMode && slug) {
+          const productResponse = await productApi.getById(slug)
+          const product = productResponse.data
+
+          // Preparar los extras como array de strings
+          let extrasArray = []
+          if (product.details && Array.isArray(product.details.extras)) {
+            extrasArray = product.details.extras
+          } else if (Array.isArray(product.extras)) {
+            extrasArray = product.extras
+          }
+
+          // Si no hay extras, inicializar con un string vacío
+          if (extrasArray.length === 0) {
+            extrasArray = [""]
+          }
+
+          setFormData({
+            name: product.name || "",
+            description: product.description || "",
+            price: product.price || "",
+            category: product.category || "",
+            material: product.material || "",
+            pages: product.pages || "",
+            size: product.size || "",
+            extras: extrasArray,
+            featured: product.featured || false,
+            show_on_homepage: product.show_on_homepage || false,
+            show_on_landing: product.show_on_landing || false,
+          })
+
+          // Si hay imagen, mostrar preview
+          if (product.image) {
+            setImagePreview(product.image)
+          }
+        }
+
+        setLoading(false)
+      } catch (err) {
+        console.error("Error fetching data:", err)
+        setError("Error al cargar los datos")
+        setLoading(false)
       }
-    };
-  
-    fetchData();
-  }, [slug, isEditMode]);
+    }
+
+    fetchData()
+  }, [slug, isEditMode])
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target
@@ -94,7 +133,7 @@ const ProductForm = () => {
 
   const removeExtra = (index) => {
     const newExtras = formData.extras.filter((_, i) => i !== index)
-    setFormData({ ...formData, extras: newExtras })
+    setFormData({ ...formData, extras: newExtras.length > 0 ? newExtras : [""] })
   }
 
   const handleSubmit = async (e) => {
@@ -111,9 +150,12 @@ const ProductForm = () => {
       formDataToSend.append("material", formData.material)
       if (formData.pages) formDataToSend.append("pages", formData.pages)
       formDataToSend.append("size", formData.size)
+
+      // Añadir extras como array de strings
       formData.extras.forEach((extra, index) => {
         if (extra.trim()) formDataToSend.append(`extras[${index}]`, extra)
       })
+
       formDataToSend.append("featured", formData.featured.toString())
       formDataToSend.append("show_on_homepage", formData.show_on_homepage.toString())
       formDataToSend.append("show_on_landing", formData.show_on_landing.toString())
@@ -131,7 +173,7 @@ const ProductForm = () => {
         toast.success("Producto creado correctamente")
       }
 
-      navigate("/products")
+      navigate("/admin/products")
     } catch (error) {
       console.error("Error saving product:", error)
       toast.error("Error al guardar el producto")
@@ -140,6 +182,17 @@ const ProductForm = () => {
 
   if (loading) {
     return <div className="loading">Cargando...</div>
+  }
+
+  if (error) {
+    return (
+      <div className="error-container">
+        <p>{error}</p>
+        <button onClick={() => navigate("/admin/products")} className="btn btn-primary">
+          Volver a Productos
+        </button>
+      </div>
+    )
   }
 
   return (
@@ -314,7 +367,7 @@ const ProductForm = () => {
         </div>
 
         <div className="form-actions">
-          <button type="button" className="btn btn-secondary" onClick={() => navigate("/products")}>
+          <button type="button" className="btn btn-secondary" onClick={() => navigate("/admin/products")}>
             Cancelar
           </button>
           <button type="submit" className="btn btn-primary">

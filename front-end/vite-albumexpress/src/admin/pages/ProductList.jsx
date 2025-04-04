@@ -133,7 +133,7 @@ const ProductList = () => {
     <div className="product-list-page">
       <div className="page-header">
         <h1>Productos</h1>
-        <Link to="/products/new" className="btn btn-primary">
+        <Link to="/admin/products/new" className="btn btn-primary">
           <i className="fas fa-plus"></i> Nuevo Producto
         </Link>
       </div>
@@ -198,7 +198,7 @@ const ProductList = () => {
                     </button>
                   </td>
                   <td className="actions">
-                    <Link to={`/products/${product.slug}`} className="edit-btn">
+                    <Link to={`/admin/products/${product.slug}`} className="edit-btn">
                       <i className="fas fa-edit"></i>
                     </Link>
                     <button className="delete-btn" onClick={() => handleDelete(product.slug)}>
