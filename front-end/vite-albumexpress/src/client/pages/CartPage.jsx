@@ -10,10 +10,9 @@ const CartPage = () => {
   const [isCartEmpty, setIsCartEmpty] = useState(true)
 
   useEffect(() => {
-    // Scroll al inicio cuando se carga la página
+    // Se hace scroll al inicio al cargar la página
     window.scrollTo(0, 0)
-
-    // Verificar si el carrito está vacío
+    // Se verifica si el carrito está vacío
     setIsCartEmpty(cartItems.length === 0)
   }, [cartItems])
 
@@ -67,27 +66,49 @@ const CartPage = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="cart-item-price">${item.price.toFixed(2)}</div>
+                  <div className="cart-item-price">
+                    ${Number(item.price).toFixed(2)}
+                  </div>
                   <div className="cart-item-quantity">
                     <div className="quantity-selector">
-                      <button onClick={() => handleQuantityChange(item.id, item.quantity - 1)} className="quantity-btn">
+                      <button
+                        onClick={() =>
+                          handleQuantityChange(item.id, item.quantity - 1)
+                        }
+                        className="quantity-btn"
+                      >
                         <i className="fas fa-minus"></i>
                       </button>
                       <input
                         type="number"
                         min="1"
                         value={item.quantity}
-                        onChange={(e) => handleQuantityChange(item.id, Number.parseInt(e.target.value))}
+                        onChange={(e) =>
+                          handleQuantityChange(
+                            item.id,
+                            Number.parseInt(e.target.value)
+                          )
+                        }
                         className="quantity-input"
                       />
-                      <button onClick={() => handleQuantityChange(item.id, item.quantity + 1)} className="quantity-btn">
+                      <button
+                        onClick={() =>
+                          handleQuantityChange(item.id, item.quantity + 1)
+                        }
+                        className="quantity-btn"
+                      >
                         <i className="fas fa-plus"></i>
                       </button>
                     </div>
                   </div>
-                  <div className="cart-item-total">${(item.price * item.quantity).toFixed(2)}</div>
+                  <div className="cart-item-total">
+                    ${(Number(item.price) * item.quantity).toFixed(2)}
+                  </div>
                   <div className="cart-item-actions">
-                    <button className="remove-item-btn" onClick={() => removeFromCart(item.id)}>
+                    <button
+                      className="remove-item-btn"
+                      onClick={() => removeFromCart(item.id)}
+                    >
                       <i className="fas fa-trash-alt"></i>
                     </button>
                   </div>
@@ -108,7 +129,7 @@ const CartPage = () => {
               <h2>Resumen del Pedido</h2>
               <div className="summary-row">
                 <span>Subtotal</span>
-                <span>${cartTotal.toFixed(2)}</span>
+                <span>${Number(cartTotal).toFixed(2)}</span>
               </div>
               <div className="summary-row">
                 <span>Envío</span>
@@ -120,7 +141,7 @@ const CartPage = () => {
               </div>
               <div className="summary-total">
                 <span>Total Estimado</span>
-                <span>${cartTotal.toFixed(2)}</span>
+                <span>${Number(cartTotal).toFixed(2)}</span>
               </div>
               <Link to="/checkout" className="btn btn-primary checkout-btn">
                 Proceder al Checkout
@@ -143,4 +164,3 @@ const CartPage = () => {
 }
 
 export default CartPage
-

@@ -103,6 +103,12 @@ const CheckoutPage = () => {
     clearCart()
   }
 
+  // Helper function to ensure price is a number
+  const formatPrice = (price) => {
+    const numPrice = parseFloat(price) || 0;
+    return numPrice.toFixed(2);
+  }
+
   if (orderPlaced) {
     return (
       <main className="checkout-page">
@@ -118,7 +124,7 @@ const CheckoutPage = () => {
                 <strong>Número de Orden:</strong> #{orderNumber}
               </p>
               <p>
-                <strong>Total:</strong> ${cartTotal.toFixed(2)} MXN
+                <strong>Total:</strong> ${parseFloat(cartTotal).toFixed(2)} MXN
               </p>
               <p>Hemos enviado un correo electrónico con los detalles de tu compra a {formData.email}</p>
             </div>
@@ -370,9 +376,11 @@ const CheckoutPage = () => {
                   </div>
                   <div className="checkout-item-details">
                     <h3>{item.name}</h3>
-                    <p>${item.price.toFixed(2)} MXN</p>
+                    <p>${formatPrice(item.price)} MXN</p>
                   </div>
-                  <div className="checkout-item-total">${(item.price * item.quantity).toFixed(2)} MXN</div>
+                  <div className="checkout-item-total">
+                    ${formatPrice(parseFloat(item.price) * item.quantity)} MXN
+                  </div>
                 </div>
               ))}
             </div>
@@ -380,7 +388,7 @@ const CheckoutPage = () => {
             <div className="checkout-totals">
               <div className="summary-row">
                 <span>Subtotal</span>
-                <span>${cartTotal.toFixed(2)} MXN</span>
+                <span>${parseFloat(cartTotal).toFixed(2)} MXN</span>
               </div>
               <div className="summary-row">
                 <span>Envío</span>
@@ -388,11 +396,11 @@ const CheckoutPage = () => {
               </div>
               <div className="summary-row">
                 <span>Impuestos (16%)</span>
-                <span>${(cartTotal * 0.16).toFixed(2)} MXN</span>
+                <span>${(parseFloat(cartTotal) * 0.16).toFixed(2)} MXN</span>
               </div>
               <div className="summary-total">
                 <span>Total</span>
-                <span>${(cartTotal * 1.16).toFixed(2)} MXN</span>
+                <span>${(parseFloat(cartTotal) * 1.16).toFixed(2)} MXN</span>
               </div>
             </div>
           </div>
@@ -403,4 +411,3 @@ const CheckoutPage = () => {
 }
 
 export default CheckoutPage
-

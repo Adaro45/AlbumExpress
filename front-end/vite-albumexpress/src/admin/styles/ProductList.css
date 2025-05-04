@@ -54,14 +54,9 @@
     background-color: var(--gray-light);
     font-weight: 600;
   }
-  
-  .product-image {
-    width: 80px;
-  }
+
   
   .product-image img {
-    width: 60px;
-    height: 60px;
     object-fit: cover;
     border-radius: 4px;
   }

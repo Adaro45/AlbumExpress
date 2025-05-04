@@ -40,19 +40,19 @@ const Footer = () => {
               <h3>Productos</h3>
               <ul>
                 <li>
-                  <Link to="/productos/bodas">Álbumes de Boda</Link>
+                  <Link to="/productos/">Álbumes de Boda</Link>
                 </li>
                 <li>
-                  <Link to="/productos/quinceaneras">Álbumes de Quinceañera</Link>
+                  <Link to="/productos/">Álbumes de Quinceañera</Link>
                 </li>
                 <li>
-                  <Link to="/productos/familias">Álbumes Familiares</Link>
+                  <Link to="/productos/">Álbumes Familiares</Link>
                 </li>
                 <li>
-                  <Link to="/productos/profesionales">Álbumes Profesionales</Link>
+                  <Link to="/productos/">Álbumes Profesionales</Link>
                 </li>
                 <li>
-                  <Link to="/productos/accesorios">Accesorios</Link>
+                  <Link to="/productos/">Accesorios</Link>
                 </li>
               </ul>
             </div>

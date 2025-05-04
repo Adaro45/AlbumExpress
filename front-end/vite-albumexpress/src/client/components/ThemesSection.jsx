@@ -15,19 +15,19 @@ const themeItems = [
   {
     id: 1,
     name: "Elegancia Clásica",
-    image: "/images/place-holder-profesional-minimalista.jpg",
+    image: "/images/album-premium-boda_nbv2LxH.jpg",
     category: "wedding",
   },
   {
     id: 2,
     name: "Sueño de Quinceañera",
-    image: "/images/place-holder-quinceanera-deluxe.jpg",
+    image: "/images/album-quinceanera-deluxe_zj6xWsH.jpg",
     category: "quinceanera",
   },
   {
     id: 3,
     name: "Momentos Familiares",
-    image: "/images/place-holder-familiar-rustico.jpg",
+    image: "/images/album-familiar-rustico_E39uxow.jpg",
     category: "family",
   },
   {
@@ -39,13 +39,13 @@ const themeItems = [
   {
     id: 5,
     name: "Boda Rústica",
-    image: "/images/place-holder-boda-vintage.jpg",
+    image: "/images/album-boda-vintage_yMDmGWD.jpg",
     category: "wedding",
   },
   {
     id: 6,
     name: "Quinceañera Moderna",
-    image: "/images/place-holder-quinceanera-clasico.jpg",
+    image: "/images/album-quinceanera-clasico_nudX3AO.jpg",
     category: "quinceanera",
   },
 ]
