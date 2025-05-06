@@ -5,7 +5,7 @@ import "./styles/ThemesSection.css"
 
 const themes = [
   { id: "all", name: "Todos" },
-  { id: "wedding", name: "Bodas" },
+  { id: "Bodas", name: "Bodas" },
   { id: "quinceanera", name: "Quinceañeras" },
   { id: "family", name: "Familias" },
   { id: "travel", name: "Viajes" },
@@ -16,7 +16,7 @@ const themeItems = [
     id: 1,
     name: "Elegancia Clásica",
     image: "/images/place-holder-profesional-minimalista.jpg",
-    category: "wedding",
+    category: "Bodas",
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const themeItems = [
     id: 5,
     name: "Boda Rústica",
     image: "/images/place-holder-boda-vintage.jpg",
-    category: "wedding",
+    category: "Bodas",
   },
   {
     id: 6,

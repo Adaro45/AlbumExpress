@@ -55,7 +55,7 @@ const CartPage = () => {
                     <div>
                       <h3>{item.name}</h3>
                       <p className="cart-item-category">
-                        {item.category === "wedding"
+                        {item.category === "Bodas"
                           ? "Bodas"
                           : item.category === "quinceanera"
                             ? "Quinceañeras"

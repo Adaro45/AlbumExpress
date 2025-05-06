@@ -138,7 +138,7 @@ const ProductDetailPage = () => {
             <div className="product-detail-meta">
               <p>
                 <strong>Categoría:</strong>{" "}
-                {product.category === "wedding"
+                {product.category === "Bodas"
                   ? "Bodas"
                   : product.category === "quinceanera"
                     ? "Quinceañeras"

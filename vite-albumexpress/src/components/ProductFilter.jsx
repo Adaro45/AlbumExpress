@@ -5,11 +5,15 @@ import "./styles/ProductFilter.css"
 
 const categories = [
   { id: "all", name: "Todos los Productos" },
-  { id: "wedding", name: "Álbumes de Boda" },
-  { id: "quinceanera", name: "Álbumes de Quinceañera" },
-  { id: "family", name: "Álbumes Familiares" },
-  { id: "professional", name: "Álbumes Profesionales" },
-  { id: "accessories", name: "Accesorios" },
+  { id: "Bodas", name: "Álbumes de Boda" },
+  { id: "Quinceañera", name: "Álbumes de Quinceañera" },
+  { id: "Familia", name: "Álbumes Familiares" },
+  { id: "Profesional", name: "Álbumes Profesionales" },
+  { id: "Acrilicos", name: "Cuadros de Acrílico" },
+  { id: "Portaretratos", name: "Portaretratos" },
+  { id: "Paquetes", name: "Paquetes" },
+  { id: "Impresiones", name: "Impresiones" },
+  { id: "Accesorios", name: "Accesorios" },
 ]
 
 const sortOptions = [
@@ -63,4 +67,3 @@ const ProductFilter = ({ activeCategory, setActiveCategory, activeSort, setActiv
 }
 
 export default ProductFilter
-
