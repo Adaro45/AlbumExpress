@@ -8,8 +8,19 @@ const FeaturedProducts = () => {
   return (
     <section className="featured-section section">
       <div className="container">
-        <h2 className="section-title">Nuestros Productos Destacados</h2>
-        <p className="section-subtitle text-center">Descubre nuestra selección de álbumes de alta calidad</p>
+        <h2 className="section-title">Nuestros Álbumes Fotográficos</h2>
+        <p className="section-subtitle text-center">
+          Álbumes profesionales en 5 tamaños diferentes con 3 variantes disponibles
+        </p>
+        <div className="size-info">
+          <div className="size-badges">
+            <span className="size-badge">12x12"</span>
+            <span className="size-badge">10x10"</span>
+            <span className="size-badge">8x12"</span>
+            <span className="size-badge">11x14"</span>
+            <span className="size-badge">12x16"</span>
+          </div>
+        </div>
 
         <div className="products-grid">
           {products.map((product) => (
@@ -43,4 +54,3 @@ const FeaturedProducts = () => {
 }
 
 export default FeaturedProducts
-

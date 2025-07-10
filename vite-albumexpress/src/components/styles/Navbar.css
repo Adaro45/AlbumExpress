@@ -1,15 +1,17 @@
 .navbar {
-  background-color: #ebebeb;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-ultra-light) 100%);
+  box-shadow: var(--shadow-light);
   position: sticky;
   top: 0;
   z-index: 1000;
   transition: all 0.3s ease;
+  border-bottom: 1px solid var(--gray);
 }
 
 .navbar.scrolled {
   padding: 0.5rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-medium);
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
 }
 
 .navbar-container {
@@ -34,98 +36,158 @@
 .navbar-logo img {
   height: 40px;
   margin-right: 0.5rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 70, 212, 0.1));
 }
 
 .navbar-logo span {
   font-weight: 700;
   font-size: 1.5rem;
-  color: var(--primary);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .navbar-links {
   display: flex;
   list-style: none;
+  gap: 0.5rem;
 }
 
 .navbar-links li {
-  margin: 0 1rem;
   position: relative;
 }
 
 .navbar-links li.active a {
-  color: var(--primary);
-}
-
-.navbar-links li.active::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: var(--primary);
-  border-radius: 2px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--text-light);
+  box-shadow: var(--shadow-light);
 }
 
 .navbar-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
   color: var(--text-dark);
   font-weight: 500;
-  transition: color 0.3s ease;
-  padding: 0.5rem 0;
-  display: inline-block;
+  transition: all 0.3s ease;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
 }
 
-.navbar-links a:hover {
+.navbar-links a:hover:not(.active) {
+  background: var(--primary-ultra-light);
   color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.navbar-links a i {
+  font-size: 0.9rem;
 }
 
 .navbar-actions {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
-.cart-icon {
-  margin-right: 1rem;
-  font-size: 1.2rem;
-  color: var(--text-dark);
-  text-decoration: none;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.cart-icon:hover {
-  color: var(--primary);
-}
-
-.cart-count {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background-color: var(--primary);
-  color: white;
-  font-size: 0.7rem;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
+.contact-phone,
+.contact-whatsapp {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-weight: bold;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.contact-phone {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  box-shadow: var(--shadow-light);
+}
+
+.contact-phone:hover {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  color: white;
+}
+
+.contact-whatsapp {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  box-shadow: var(--shadow-light);
+}
+
+.contact-whatsapp:hover {
+  background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  color: white;
+}
+
+.mobile-contact-buttons {
+  display: none;
 }
 
 .mobile-toggle {
   display: none;
   flex-direction: column;
   cursor: pointer;
+  padding: 0.5rem;
 }
 
 .mobile-toggle span {
   width: 25px;
   height: 3px;
-  background-color: var(--text-dark);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   margin: 2px 0;
   transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Navegación rápida flotante */
+.quick-nav {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quick-nav-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-medium);
+  transition: all 0.3s ease;
+}
+
+.quick-nav-phone {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+.quick-nav-whatsapp {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+}
+
+.quick-nav-btn:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-strong);
 }
 
 @media (max-width: 768px) {
@@ -135,7 +197,7 @@
     left: -100%;
     width: 100%;
     height: calc(100vh - 70px);
-    background-color: #ebebeb;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-ultra-light) 100%);
     transition: left 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -152,18 +214,65 @@
   .navbar-links {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
   }
 
-  .navbar-links li {
-    margin: 1rem 0;
+  .navbar-links a {
+    padding: 1rem 2rem;
+    width: 200px;
+    justify-content: center;
+    font-size: 1rem;
   }
 
-  .navbar-links li.active::after {
-    bottom: -2px;
+  .mobile-contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 280px;
+    padding: 0 2rem;
   }
 
-  .navbar-actions .btn {
+  .mobile-contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    color: white;
+  }
+
+  .mobile-contact-btn.phone {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    box-shadow: var(--shadow-light);
+  }
+
+  .mobile-contact-btn.whatsapp {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    box-shadow: var(--shadow-light);
+  }
+
+  .mobile-contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .phone-text,
+  .whatsapp-text {
     display: none;
+  }
+
+  .contact-phone,
+  .contact-whatsapp {
+    padding: 0.6rem;
+    min-width: 40px;
+    justify-content: center;
   }
 
   .mobile-toggle {
@@ -181,5 +290,15 @@
   .mobile-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
   }
-}
 
+  .quick-nav {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .quick-nav-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}

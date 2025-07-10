@@ -4,16 +4,12 @@ import { useState } from "react"
 import "./styles/ProductFilter.css"
 
 const categories = [
-  { id: "all", name: "Todos los Productos" },
-  { id: "Bodas", name: "Álbumes de Boda" },
-  { id: "Quinceañera", name: "Álbumes de Quinceañera" },
-  { id: "Familia", name: "Álbumes Familiares" },
-  { id: "Profesional", name: "Álbumes Profesionales" },
-  { id: "Acrilicos", name: "Cuadros de Acrílico" },
-  { id: "Portaretratos", name: "Portaretratos" },
-  { id: "Paquetes", name: "Paquetes" },
-  { id: "Impresiones", name: "Impresiones" },
-  { id: "Accesorios", name: "Accesorios" },
+  { id: "all", name: "Todos los Tamaños" },
+  { id: "12x12", name: "12x12 pulgadas" },
+  { id: "10x10", name: "10x10 pulgadas" },
+  { id: "8x12", name: "8x12 pulgadas" },
+  { id: "11x14", name: "11x14 pulgadas" },
+  { id: "12x16", name: "12x16 pulgadas" },
 ]
 
 const sortOptions = [

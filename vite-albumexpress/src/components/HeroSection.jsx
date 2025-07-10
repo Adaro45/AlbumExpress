@@ -7,47 +7,47 @@ import "./styles/HeroSection.css"
 const slides = [
   {
     id: 1,
-    title: "Captura tus momentos más especiales",
+    title: "Álbumes Fotográficos Profesionales",
     description:
-      "Álbumes de alta calidad para bodas, quinceañeras y todo tipo de eventos. Diseñados para preservar tus recuerdos con estilo y elegancia.",
+      "Especialistas en álbumes fotográficos de alta calidad. Disponibles en 5 tamaños diferentes con 3 variantes: Portada y Vinil, Portada y Contraportada, y Guestbook.",
     images: [
-      { src: "./images/place-holder-quinceanera-clasico.jpg", alt: "Álbum de quinceañera" },
-      { src: "./images/place-holder-boda-premium.jpg", alt: "Álbum de bodas" },
-      { src: "./images/place-holder-familiar-rustico.jpg", alt: "Álbum familiar" },
+      { src: "./images/place-holder-boda-premium.jpg", alt: "Álbum 12x12" },
+      { src: "./images/place-holder-quinceanera-deluxe.jpg", alt: "Álbum 10x10" },
+      { src: "./images/place-holder-familiar-rustico.jpg", alt: "Álbum 8x12" },
     ],
     buttons: [
-      { text: "Ver Productos", link: "/productos", primary: true },
-      { text: "Contactar", link: "/contacto", primary: false },
+      { text: "Ver Álbumes", link: "/productos", primary: true, icon: "fas fa-book" },
+      { text: "Contactar", link: "/contacto", primary: false, icon: "fas fa-phone" },
     ],
   },
   {
     id: 2,
-    title: "Paquete especial de recuerdos por solo 7000 MXN",
+    title: "5 Tamaños Disponibles",
     description:
-      "Llévate un álbum premium, un cuadro de acrílico y un portaretratos a un precio increíble. La combinación perfecta para preservar tus momentos más valiosos.",
+      "12x12, 10x10, 8x12, 11x14, 12x16 pulgadas. Encuentra el tamaño perfecto para tus fotografías con papel fotográfico premium y acabados de alta calidad.",
     images: [
-      { src: "./images/placeholder_cuadro_acrilico.jpeg", alt: "Cuadro de acrílico" },
-      { src: "./images/place-holder-boda-premium.jpg", alt: "Álbum premium" },
-      { src: "./images/placeholder_portaretrato.jpeg", alt: "Portaretratos" },
+      { src: "./images/place-holder-quinceanera-clasico.jpg", alt: "Diferentes tamaños" },
+      { src: "./images/place-holder-boda-vintage.jpg", alt: "Álbum grande" },
+      { src: "./images/place-holder-profesional-minimalista.jpg", alt: "Álbum compacto" },
     ],
     buttons: [
-      { text: "Ver Oferta", link: "/productos", primary: true },
-      { text: "Más Información", link: "/contacto", primary: false },
+      { text: "Ver Catálogo", link: "/productos", primary: true, icon: "fas fa-images" },
+      { text: "WhatsApp", link: "https://wa.me/5212345678", primary: false, icon: "fab fa-whatsapp" },
     ],
   },
   {
     id: 3,
-    title: "Decoración moderna con cuadros de acrílico",
+    title: "3 Variantes Disponibles",
     description:
-      "Transforma tus espacios con nuestros elegantes cuadros de acrílico. Diseño minimalista y contemporáneo para dar vida a tus fotografías favoritas.",
+      "Portada y Vinil (acabado mate), Portada y Contraportada (máxima personalización), o Guestbook (perfecto para eventos). Calidad garantizada.",
     images: [
-      { src: "./images/placeholder_cuadro_acrilio.jpeg", alt: "Cuadro de acrílico moderno" },
-      { src: "./images/placeholder_cuadro_acrilicoboda.jpeg", alt: "Cuadro minimalista" },
-      { src: "./images/placeholder_cuadro_acrilico_quinceanera.jpeg", alt: "Decoración con cuadros" },
+      { src: "./images/place-holder-boda-premium.jpg", alt: "Portada y Vinil" },
+      { src: "./images/place-holder-quinceanera-deluxe.jpg", alt: "Portada y Contraportada" },
+      { src: "./images/place-holder-familiar-rustico.jpg", alt: "Guestbook" },
     ],
     buttons: [
-      { text: "Explorar Cuadros", link: "/productos", primary: true },
-      { text: "Ver Galería", link: "/productos", primary: false },
+      { text: "Cotizar", link: "tel:+5212345678", primary: true, icon: "fas fa-calculator" },
+      { text: "Más Info", link: "/contacto", primary: false, icon: "fas fa-info-circle" },
     ],
   },
 ]
@@ -55,12 +55,25 @@ const slides = [
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [albumOrder, setAlbumOrder] = useState([0, 1, 2])
+  const [isMobile, setIsMobile] = useState(false)
 
-  // Efecto para cambiar de slide cada 8 segundos
+  // Detectar si es móvil
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  // Efecto para cambiar de slide cada 5 segundos
   useEffect(() => {
     const slideInterval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length)
-    }, 3000)
+    }, 5000)
 
     return () => clearInterval(slideInterval)
   }, [])
@@ -69,13 +82,12 @@ const HeroSection = () => {
   useEffect(() => {
     const rotateInterval = setInterval(() => {
       setAlbumOrder((prevOrder) => {
-        // Rotar el orden: el último pasa al primero
         const newOrder = [...prevOrder]
         const last = newOrder.pop()
         newOrder.unshift(last)
         return newOrder
       })
-    }, 14000)
+    }, 3000)
 
     return () => clearInterval(rotateInterval)
   }, [])
@@ -95,8 +107,9 @@ const HeroSection = () => {
           <p>{slide.description}</p>
           <div className="hero-buttons">
             {slide.buttons.map((button, index) => (
-              <Link key={index} to={button.link} className={`btn ${button.primary ? "btn-primary" : "btn-outline"}`}>
-                {button.text}
+              <Link key={index} to={button.link} className={`btn ${button.primary ? "btn-primary" : "btn-secondary"}`}>
+                <i className={button.icon}></i>
+                <span>{button.text}</span>
               </Link>
             ))}
           </div>
@@ -126,15 +139,17 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="hero-wave">
-        <svg xmlns="http://www.w3.org/2000/svg" className="wave" viewBox="0 0 1440 180">
-          <path
-            fill="#ebebeb"
-            fillOpacity="1"
-            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-          ></path>
-        </svg>
-      </div>
+      {!isMobile && (
+        <div className="hero-wave">
+          <svg xmlns="http://www.w3.org/2000/svg" className="wave" viewBox="0 0 1440 180">
+            <path
+              fill="var(--secondary)"
+              fillOpacity="1"
+              d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+        </div>
+      )}
     </section>
   )
 }

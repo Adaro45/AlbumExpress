@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import "./styles/CTASection.css"
 
 const CTASection = () => {
@@ -6,18 +5,35 @@ const CTASection = () => {
     <section className="cta-section">
       <div className="container">
         <div className="cta-content">
-          <h2>¿Listo para crear tu álbum perfecto?</h2>
+          <h2>¿Listo para crear tu álbum fotográfico?</h2>
           <p>
-            Contáctanos hoy mismo y te ayudaremos a preservar tus recuerdos más preciados con nuestros álbumes de alta
-            calidad.
+            Contáctanos directamente para cotizar tu álbum. Te ayudamos a elegir el tamaño y variante perfecta para tus
+            fotografías.
           </p>
           <div className="cta-buttons">
-            <Link to="/productos" className="btn btn-primary">
-              Ver Productos
-            </Link>
-            <Link to="/contacto" className="btn btn-outline">
-              Contactar
-            </Link>
+            <a href="tel:+5212345678" className="btn btn-primary">
+              <i className="fas fa-phone"></i> Llamar Ahora
+            </a>
+            <a href="https://wa.me/5212345678" className="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="mailto:ventas@albumexpress.com" className="btn btn-secondary">
+              <i className="fas fa-envelope"></i> Email
+            </a>
+          </div>
+          <div className="contact-info-quick">
+            <div className="contact-item">
+              <i className="fas fa-phone"></i>
+              <span>
+                <strong>Teléfono:</strong> +52 123 456 78
+              </span>
+            </div>
+            <div className="contact-item">
+              <i className="fas fa-envelope"></i>
+              <span>
+                <strong>Email:</strong> ventas@albumexpress.com
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -26,4 +42,3 @@ const CTASection = () => {
 }
 
 export default CTASection
-

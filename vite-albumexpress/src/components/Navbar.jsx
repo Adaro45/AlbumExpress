@@ -2,14 +2,12 @@
 
 import { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
-import { useCart } from "../context/CartContext"
 import logo from "../assets/images/logo.png"
 import "./styles/Navbar.css"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const { cartCount } = useCart()
   const location = useLocation()
 
   const toggleMenu = () => {
@@ -36,49 +34,96 @@ const Navbar = () => {
   }, [location])
 
   return (
-    <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
-      <div className="container navbar-container">
-        <Link to="/" className="navbar-logo">
-          <img src={logo || "/placeholder.svg"} alt="AlbumExpress Logo" />
-          <span>AlbumExpress</span>
-        </Link>
-
-        <div className={`navbar-menu ${isMenuOpen ? "active" : ""}`}>
-          <ul className="navbar-links">
-            <li className={location.pathname === "/" ? "active" : ""}>
-              <Link to="/">Inicio</Link>
-            </li>
-            <li className={location.pathname.includes("/productos") ? "active" : ""}>
-              <Link to="/productos">Productos</Link>
-            </li>
-            <li className={location.pathname === "/nosotros" ? "active" : ""}>
-              <Link to="/nosotros">Nosotros</Link>
-            </li>
-            <li className={location.pathname === "/contacto" ? "active" : ""}>
-              <Link to="/contacto">Contacto</Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className="navbar-actions">
-          <Link to="/carrito" className="cart-icon">
-            <i className="fas fa-shopping-cart"></i>
-            {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+    <>
+      <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
+        <div className="container navbar-container">
+          <Link to="/" className="navbar-logo">
+            <img src={logo || "/placeholder.svg"} alt="AlbumExpress Logo" />
+            <span>AlbumExpress</span>
           </Link>
-          <Link to="/checkout" className="btn btn-primary">
-            Mi Cuenta
-          </Link>
-        </div>
 
-        <div className="mobile-toggle" onClick={toggleMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
+          <div className={`navbar-menu ${isMenuOpen ? "active" : ""}`}>
+            <ul className="navbar-links">
+              <li className={location.pathname === "/" ? "active" : ""}>
+                <Link to="/">
+                  <i className="fas fa-home"></i>
+                  <span>Inicio</span>
+                </Link>
+              </li>
+              <li className={location.pathname.includes("/productos") ? "active" : ""}>
+                <Link to="/productos">
+                  <i className="fas fa-book"></i>
+                  <span>Álbumes</span>
+                </Link>
+              </li>
+              <li className={location.pathname === "/nosotros" ? "active" : ""}>
+                <Link to="/nosotros">
+                  <i className="fas fa-users"></i>
+                  <span>Nosotros</span>
+                </Link>
+              </li>
+              <li className={location.pathname === "/contacto" ? "active" : ""}>
+                <Link to="/contacto">
+                  <i className="fas fa-phone"></i>
+                  <span>Contacto</span>
+                </Link>
+              </li>
+            </ul>
+
+            {/* Botones de contacto en menú móvil */}
+            <div className="mobile-contact-buttons">
+              <a href="tel:+5212345678" className="mobile-contact-btn phone">
+                <i className="fas fa-phone"></i>
+                <span>Llamar Ahora</span>
+              </a>
+              <a
+                href="https://wa.me/5212345678"
+                className="mobile-contact-btn whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="navbar-actions">
+            <a href="tel:+5212345678" className="contact-phone">
+              <i className="fas fa-phone"></i>
+              <span className="phone-text">Llamar</span>
+            </a>
+            <a href="https://wa.me/5212345678" className="contact-whatsapp" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-whatsapp"></i>
+              <span className="whatsapp-text">WhatsApp</span>
+            </a>
+          </div>
+
+          <div className={`mobile-toggle ${isMenuOpen ? "active" : ""}`} onClick={toggleMenu}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
+      </nav>
+
+      {/* Navegación rápida flotante */}
+      <div className="quick-nav">
+        <a href="tel:+5212345678" className="quick-nav-btn quick-nav-phone" title="Llamar">
+          <i className="fas fa-phone"></i>
+        </a>
+        <a
+          href="https://wa.me/5212345678"
+          className="quick-nav-btn quick-nav-whatsapp"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="WhatsApp"
+        >
+          <i className="fab fa-whatsapp"></i>
+        </a>
       </div>
-    </nav>
+    </>
   )
 }
 
 export default Navbar
-

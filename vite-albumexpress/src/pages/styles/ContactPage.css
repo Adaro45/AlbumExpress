@@ -1,50 +1,264 @@
 .contact-page {
-    min-height: 100vh;
-  }
-  
-  .contact-hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: var(--text-light);
-    padding: 4rem 0;
-    text-align: center;
-  }
-  
+  min-height: 100vh;
+}
+
+.contact-hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--blue-soft) 100%);
+  color: var(--text-light);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.contact-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section {
+  padding: 5rem 0;
+  background: var(--secondary);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.contact-card {
+  background: linear-gradient(135deg, var(--gray-light) 0%, white 100%);
+  padding: 2.5rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: var(--shadow-medium);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--gray);
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-strong);
+}
+
+.contact-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  font-size: 2rem;
+  box-shadow: var(--shadow-light);
+}
+
+.contact-icon.whatsapp {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+}
+
+.contact-icon.email {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+}
+
+.contact-icon.location {
+  background: linear-gradient(135deg, var(--blue-soft) 0%, var(--blue-light) 100%);
+}
+
+.contact-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-card p {
+  color: var(--text-medium);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.contact-details {
+  margin-bottom: 2rem;
+}
+
+.contact-details p {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.contact-details strong {
+  color: var(--primary-dark);
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  box-shadow: var(--shadow-light);
+}
+
+.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.schedule-section {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 3rem;
+  background: linear-gradient(135deg, var(--primary-ultra-light) 0%, white 100%);
+  border-radius: 16px;
+  box-shadow: var(--shadow-light);
+}
+
+.schedule-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.schedule-item {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow-light);
+  transition: transform 0.3s ease;
+}
+
+.schedule-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+}
+
+.schedule-item h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.schedule-item p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.quick-actions {
+  text-align: center;
+}
+
+.quick-actions h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-light);
+  color: white;
+  font-weight: 500;
+}
+
+.phone-action {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+.whatsapp-action {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+}
+
+.email-action {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+}
+
+.action-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+  color: white;
+}
+
+.action-btn i {
+  font-size: 2rem;
+}
+
+.action-btn span {
+  font-size: 1.1rem;
+}
+
+.map-section {
+  line-height: 0;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+  margin: 0 1rem;
+  box-shadow: var(--shadow-medium);
+}
+
+@media (max-width: 768px) {
   .contact-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
   }
-  
-  .contact-hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
-    opacity: 0.9;
+
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .contact-section {
-    padding: 5rem 0;
+
+  .schedule-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .contact-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 3rem;
+
+  .actions-grid {
+    grid-template-columns: 1fr;
   }
-  
+
+  .contact-card {
+    padding: 2rem;
+  }
+
+  .schedule-section {
+    padding: 2rem;
+  }
+
   .map-section {
-    line-height: 0;
+    margin: 0;
+    border-radius: 0;
   }
-  
-  @media (max-width: 992px) {
-    .contact-container {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .contact-hero h1 {
-      font-size: 2.5rem;
-    }
-  }
-  
-  
+}
