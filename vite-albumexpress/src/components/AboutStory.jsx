@@ -16,7 +16,7 @@ const AboutStory = () => {
             </p>
             <p>
               Lo que comenzó como un pequeño taller familiar se ha convertido en una empresa líder en la industria,
-              sirviendo a fotógrafos profesionales y clientes directos en todo el país.
+              sirviendo a fotógrafos profesionales y clientes directos en todo la ciudad.
             </p>
             <p>
               A lo largo de estos años, hemos perfeccionado nuestras técnicas de producción y ampliado nuestra gama de
@@ -32,7 +32,7 @@ const AboutStory = () => {
                 <p>Clientes Satisfechos</p>
               </div>
               <div className="stat">
-                <h3>+13</h3>
+                <h3>+15</h3>
                 <p>Años de Experiencia</p>
               </div>
             </div>

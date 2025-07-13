@@ -270,7 +270,7 @@ const products = [
   {
     id: 1,
     name: "Álbum 12x12 - Portada y Vinil",
-    image: "/images/place-holder-boda-premium.jpg",
+    image: "/images/albumportadaacrilico.png",
     price: 1800,
     category: "12x12",
     featured: true,
@@ -288,7 +288,7 @@ const products = [
   {
     id: 2,
     name: "Álbum 12x12 - Portada y Contraportada",
-    image: "/images/place-holder-quinceanera-deluxe.jpg",
+    image: "/images/albumportada.png",
     price: 2200,
     category: "12x12",
     featured: true,
@@ -311,7 +311,7 @@ const products = [
   {
     id: 3,
     name: "Álbum 12x12 - Guestbook",
-    image: "/images/place-holder-familiar-rustico.jpg",
+    image: "/images/guessbook.png",
     price: 2000,
     category: "12x12",
     featured: true,
@@ -330,7 +330,7 @@ const products = [
   {
     id: 4,
     name: "Álbum 10x10 - Portada y Vinil",
-    image: "/images/place-holder-quinceanera-clasico.jpg",
+    image: "/images/albumportadayvinil.png",
     price: 1500,
     category: "10x10",
     featured: true,
@@ -347,7 +347,7 @@ const products = [
   {
     id: 5,
     name: "Álbum 10x10 - Portada y Contraportada",
-    image: "/images/place-holder-boda-vintage.jpg",
+    image: "/images/albumportadacompleta.png",
     price: 1800,
     category: "10x10",
     featured: false,
@@ -364,7 +364,7 @@ const products = [
   {
     id: 6,
     name: "Álbum 10x10 - Guestbook",
-    image: "/images/place-holder-profesional-minimalista.jpg",
+    image: "/images/guessbook2.png",
     price: 1650,
     category: "10x10",
     featured: false,
@@ -383,7 +383,7 @@ const products = [
   {
     id: 7,
     name: "Álbum 8x12 - Portada y Vinil",
-    image: "/images/place-holder-boda-premium.jpg",
+    image: "/images/albumaama.png",
     price: 1400,
     category: "8x12",
     featured: false,
@@ -400,7 +400,7 @@ const products = [
   {
     id: 8,
     name: "Álbum 8x12 - Portada y Contraportada",
-    image: "/images/place-holder-quinceanera-deluxe.jpg",
+    image: "/images/albumboda.png",
     price: 1700,
     category: "8x12",
     featured: false,
@@ -414,29 +414,10 @@ const products = [
       extras: ["Formato rectangular", "Portada personalizada", "Contraportada personalizada", "Acabado brillante"],
     },
   },
-
-  // Álbumes 11x14
-  {
-    id: 9,
-    name: "Álbum 11x14 - Portada y Vinil",
-    image: "/images/place-holder-familiar-rustico.jpg",
-    price: 2200,
-    category: "11x14",
-    featured: true,
-    date: "2023-12-01",
-    description: "Álbum grande de 11x14 pulgadas con portada personalizada y vinil premium.",
-    details: {
-      size: "11x14 pulgadas",
-      variant: "Portada y Vinil",
-      pages: "20 páginas internas",
-      material: "Vinil premium",
-      extras: ["Formato grande", "Portada personalizada", "Acabado mate", "Papel fotográfico premium"],
-    },
-  },
   {
     id: 10,
     name: "Álbum 11x14 - Portada y Contraportada",
-    image: "/images/place-holder-quinceanera-clasico.jpg",
+    image: "/images/albumrosa.png",
     price: 2600,
     category: "11x14",
     featured: true,
@@ -451,28 +432,10 @@ const products = [
     },
   },
 
-  // Álbumes 12x16
   {
     id: 11,
-    name: "Álbum 12x16 - Portada y Vinil",
-    image: "/images/place-holder-boda-vintage.jpg",
-    price: 2500,
-    category: "12x16",
-    featured: true,
-    date: "2023-12-01",
-    description: "Álbum panorámico de 12x16 pulgadas con portada personalizada y vinil de lujo.",
-    details: {
-      size: "12x16 pulgadas",
-      variant: "Portada y Vinil",
-      pages: "20 páginas internas",
-      material: "Vinil de lujo",
-      extras: ["Formato panorámico", "Portada personalizada", "Acabado mate", "Papel fotográfico premium"],
-    },
-  },
-  {
-    id: 12,
     name: "Álbum 12x16 - Portada y Contraportada",
-    image: "/images/place-holder-profesional-minimalista.jpg",
+    image: "/images/albumglobosrosa.png",
     price: 2900,
     category: "12x16",
     featured: true,

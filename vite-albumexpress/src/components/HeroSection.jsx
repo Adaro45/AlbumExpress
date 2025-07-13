@@ -11,9 +11,9 @@ const slides = [
     description:
       "Especialistas en álbumes fotográficos de alta calidad. Disponibles en 5 tamaños diferentes con 3 variantes: Portada y Vinil, Portada y Contraportada, y Guestbook.",
     images: [
-      { src: "./images/place-holder-boda-premium.jpg", alt: "Álbum 12x12" },
-      { src: "./images/place-holder-quinceanera-deluxe.jpg", alt: "Álbum 10x10" },
-      { src: "./images/place-holder-familiar-rustico.jpg", alt: "Álbum 8x12" },
+      { src: "./images/albumboda.png", alt: "Álbum 12x12" },
+      { src: "./images/guessbook2.png", alt: "Álbum 10x10" },
+      { src: "./images/albumportadayvinil.png", alt: "Álbum 8x12" },
     ],
     buttons: [
       { text: "Ver Álbumes", link: "/productos", primary: true, icon: "fas fa-book" },
@@ -26,9 +26,9 @@ const slides = [
     description:
       "12x12, 10x10, 8x12, 11x14, 12x16 pulgadas. Encuentra el tamaño perfecto para tus fotografías con papel fotográfico premium y acabados de alta calidad.",
     images: [
-      { src: "./images/place-holder-quinceanera-clasico.jpg", alt: "Diferentes tamaños" },
-      { src: "./images/place-holder-boda-vintage.jpg", alt: "Álbum grande" },
-      { src: "./images/place-holder-profesional-minimalista.jpg", alt: "Álbum compacto" },
+      { src: "./images/albumportada.png", alt: "Diferentes tamaños" },
+      { src: "./images/albumglobosrosa.png", alt: "Álbum grande" },
+      { src: "./images/albumportadaacrilico.png", alt: "Álbum compacto" },
     ],
     buttons: [
       { text: "Ver Catálogo", link: "/productos", primary: true, icon: "fas fa-images" },
@@ -39,11 +39,11 @@ const slides = [
     id: 3,
     title: "3 Variantes Disponibles",
     description:
-      "Portada y Vinil (acabado mate), Portada y Contraportada (máxima personalización), o Guestbook (perfecto para eventos). Calidad garantizada.",
+      "Portada y Vinil, Portada y Contraportada, o Guestbook . Calidad garantizada.",
     images: [
-      { src: "./images/place-holder-boda-premium.jpg", alt: "Portada y Vinil" },
-      { src: "./images/place-holder-quinceanera-deluxe.jpg", alt: "Portada y Contraportada" },
-      { src: "./images/place-holder-familiar-rustico.jpg", alt: "Guestbook" },
+      { src: "./images/guessbook.png", alt: "Portada y Vinil" },
+      { src: "./images/albumportadacompleta.png", alt: "Portada y Contraportada" },
+      { src: "./images/albumrosa.png", alt: "Guestbook" },
     ],
     buttons: [
       { text: "Cotizar", link: "tel:+5212345678", primary: true, icon: "fas fa-calculator" },
@@ -73,7 +73,7 @@ const HeroSection = () => {
   useEffect(() => {
     const slideInterval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length)
-    }, 5000)
+    }, 10000)
 
     return () => clearInterval(slideInterval)
   }, [])
@@ -87,7 +87,7 @@ const HeroSection = () => {
         newOrder.unshift(last)
         return newOrder
       })
-    }, 3000)
+    }, 2000)
 
     return () => clearInterval(rotateInterval)
   }, [])

@@ -11,7 +11,7 @@ const AboutPage = () => {
       <AboutHero />
       <AboutStory />
       <AboutValues />
-      <AboutTeam />
+      {/* <AboutTeam /> */}
       <CTASection />
     </main>
   )

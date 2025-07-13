@@ -10,8 +10,8 @@ const HomePage = () => {
     <main>
       <HeroSection />
       <FeaturedProducts />
-      <ThemesSection />
-      <TestimonialsSection />
+          {/* <ThemesSection />
+          <TestimonialsSection /> */}
       <CTASection />
     </main>
   )
