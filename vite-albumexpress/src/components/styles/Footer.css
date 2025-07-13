@@ -151,6 +151,9 @@
   .footer-logo p {
     margin: 0 auto;
   }
+  .footer-brand {
+    width: 200px;
+  }
 }
 
 @media (max-width: 768px) {

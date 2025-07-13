@@ -32,7 +32,6 @@ const ProductCard = ({ product }) => {
       <div className="product-info">
         <h3>{product.name}</h3>
         <p className="product-variant">{product.details.variant}</p>
-        <p className="product-price">${product.price.toFixed(2)} MXN</p>
         <div className="product-actions">
           <Link to={`/productos/${product.id}`} className="btn btn-primary">
             Ver Detalles

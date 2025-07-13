@@ -2,16 +2,13 @@
 
 import { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
-import { useCart } from "../context/CartContext"
 import { getProductById } from "../data/products"
 import "./styles/ProductDetailPage.css"
 
 const ProductDetailPage = () => {
   const { id } = useParams()
   const [product, setProduct] = useState(null)
-  const [quantity, setQuantity] = useState(1)
   const [loading, setLoading] = useState(true)
-  const { addToCart } = useCart()
 
   useEffect(() => {
     // Scroll al inicio cuando se carga la página
@@ -29,19 +26,6 @@ const ProductDetailPage = () => {
 
     setLoading(false)
   }, [id])
-
-  const handleQuantityChange = (e) => {
-    const value = Number.parseInt(e.target.value)
-    if (value > 0) {
-      setQuantity(value)
-    }
-  }
-
-  const handleAddToCart = () => {
-    if (product) {
-      addToCart(product, quantity)
-    }
-  }
 
   if (loading) {
     return (
@@ -80,7 +64,6 @@ const ProductDetailPage = () => {
 
           <div className="product-detail-info">
             <h1>{product.name}</h1>
-            <p className="product-detail-price">${product.price.toFixed(2)} MXN</p>
             <div className="product-detail-description">
               <p>{product.description}</p>
             </div>
@@ -89,15 +72,16 @@ const ProductDetailPage = () => {
               <h3>Especificaciones</h3>
               <ul>
                 <li>
-                  <strong>Material:</strong> {product.details.material}
-                </li>
-                {product.details.pages && (
-                  <li>
-                    <strong>Páginas:</strong> {product.details.pages}
-                  </li>
-                )}
-                <li>
                   <strong>Tamaño:</strong> {product.details.size}
+                </li>
+                <li>
+                  <strong>Variante:</strong> {product.details.variant}
+                </li>
+                <li>
+                  <strong>Páginas:</strong> {product.details.pages}
+                </li>
+                <li>
+                  <strong>Material:</strong> {product.details.material}
                 </li>
               </ul>
             </div>
@@ -114,39 +98,22 @@ const ProductDetailPage = () => {
             </div>
 
             <div className="product-detail-actions">
-              <div className="quantity-selector">
-                <button onClick={() => quantity > 1 && setQuantity(quantity - 1)} className="quantity-btn">
-                  <i className="fas fa-minus"></i>
-                </button>
-                <input
-                  type="number"
-                  min="1"
-                  value={quantity}
-                  onChange={handleQuantityChange}
-                  className="quantity-input"
-                />
-                <button onClick={() => setQuantity(quantity + 1)} className="quantity-btn">
-                  <i className="fas fa-plus"></i>
-                </button>
-              </div>
-
-              <button className="btn btn-primary btn-lg" onClick={handleAddToCart}>
-                <i className="fas fa-shopping-cart"></i> Agregar al Carrito
-              </button>
+              <a href="tel:+5212345678" className="btn btn-primary btn-lg">
+                <i className="fas fa-phone"></i> Cotizar por Teléfono
+              </a>
+              <a
+                href="https://wa.me/5212345678"
+                className="btn btn-secondary btn-lg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-whatsapp"></i> WhatsApp
+              </a>
             </div>
 
             <div className="product-detail-meta">
               <p>
-                <strong>Categoría:</strong>{" "}
-                {product.category === "Bodas"
-                  ? "Bodas"
-                  : product.category === "quinceanera"
-                    ? "Quinceañeras"
-                    : product.category === "family"
-                      ? "Familias"
-                      : product.category === "professional"
-                        ? "Profesional"
-                        : "Accesorios"}
+                <strong>Categoría:</strong> {product.category}
               </p>
             </div>
           </div>
@@ -157,4 +124,3 @@ const ProductDetailPage = () => {
 }
 
 export default ProductDetailPage
-

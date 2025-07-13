@@ -14,8 +14,6 @@ const categories = [
 
 const sortOptions = [
   { id: "featured", name: "Destacados" },
-  { id: "price-low", name: "Precio: Menor a Mayor" },
-  { id: "price-high", name: "Precio: Mayor a Menor" },
   { id: "newest", name: "Más Recientes" },
 ]
 

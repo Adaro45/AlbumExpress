@@ -53,13 +53,6 @@
   font-size: 0.9rem;
   color: var(--primary);
   font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-
-.product-price {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--primary);
   margin-bottom: 1rem;
 }
 

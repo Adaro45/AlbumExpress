@@ -30,13 +30,10 @@ const ContactPage = () => {
               <p>Habla con nuestros especialistas para cotizar tu álbum</p>
               <div className="contact-details">
                 <p>
-                  <strong>+52 (55) 1234 5678</strong>
-                </p>
-                <p>
-                  <strong>+52 (55) 8765 4321</strong>
+                  <strong>+52 (56) 1924 1281</strong>
                 </p>
               </div>
-              <a href="tel:+5212345678" className="btn btn-primary">
+              <a href="tel:+525619241281" className="btn btn-primary">
                 <i className="fas fa-phone"></i> Llamar Ahora
               </a>
             </div>
@@ -50,11 +47,11 @@ const ContactPage = () => {
               <p>Envíanos un mensaje y te respondemos al instante</p>
               <div className="contact-details">
                 <p>
-                  <strong>+52 123 456 78</strong>
+                  <strong>+52 (56) 1924 1281</strong>
                 </p>
                 <p>Disponible 24/7</p>
               </div>
-              <a href="https://wa.me/5212345678" className="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5619241281" className="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-whatsapp"></i> Abrir WhatsApp
               </a>
             </div>
@@ -68,13 +65,10 @@ const ContactPage = () => {
               <p>Envíanos tu consulta y te respondemos en menos de 24 horas</p>
               <div className="contact-details">
                 <p>
-                  <strong>ventas@albumexpress.com</strong>
-                </p>
-                <p>
-                  <strong>info@albumexpress.com</strong>
+                  <strong>info@albumexpress.mx</strong>
                 </p>
               </div>
-              <a href="mailto:ventas@albumexpress.com" className="btn btn-secondary">
+              <a href="mailto:info@albumexpress.mx" className="btn btn-secondary">
                 <i className="fas fa-envelope"></i> Enviar Email
               </a>
             </div>
@@ -93,7 +87,7 @@ const ContactPage = () => {
                 <p>Col. Centro, Ciudad de México</p>
                 <p>CP 12345</p>
               </div>
-              <a href="https://maps.google.com" className="btn btn-earth" target="_blank" rel="noopener noreferrer">
+              <a href="https://maps.app.goo.gl/rBF3oqXbZN4ir4y4A" className="btn btn-earth" target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-map-marker-alt"></i> Ver en Mapa
               </a>
             </div>
@@ -105,7 +99,7 @@ const ContactPage = () => {
             <div className="schedule-grid">
               <div className="schedule-item">
                 <h4>Lunes a Viernes</h4>
-                <p>9:00 AM - 6:00 PM</p>
+                <p>10:00 AM - 7:00 PM</p>
               </div>
               <div className="schedule-item">
                 <h4>Sábados</h4>
@@ -122,12 +116,12 @@ const ContactPage = () => {
           <div className="quick-actions">
             <h2>Acciones Rápidas</h2>
             <div className="actions-grid">
-              <a href="tel:+5212345678" className="action-btn phone-action">
+              <a href="tel:+525619241281" className="action-btn phone-action">
                 <i className="fas fa-phone"></i>
                 <span>Llamada Directa</span>
               </a>
               <a
-                href="https://wa.me/5212345678"
+                href="https://wa.me/5619241281"
                 className="action-btn whatsapp-action"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -135,7 +129,7 @@ const ContactPage = () => {
                 <i className="fab fa-whatsapp"></i>
                 <span>Chat WhatsApp</span>
               </a>
-              <a href="mailto:ventas@albumexpress.com" className="action-btn email-action">
+              <a href="mailto:info@albumexpress.mx" className="action-btn email-action">
                 <i className="fas fa-envelope"></i>
                 <span>Enviar Email</span>
               </a>

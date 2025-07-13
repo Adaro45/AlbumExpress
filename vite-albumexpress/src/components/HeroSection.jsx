@@ -32,7 +32,7 @@ const slides = [
     ],
     buttons: [
       { text: "Ver Catálogo", link: "/productos", primary: true, icon: "fas fa-images" },
-      { text: "WhatsApp", link: "https://wa.me/5212345678", primary: false, icon: "fab fa-whatsapp" },
+      { text: "WhatsApp", link: "https://wa.me/525619241281", primary: false, icon: "fab fa-whatsapp" },
     ],
   },
   {
@@ -46,7 +46,7 @@ const slides = [
       { src: "./images/albumrosa.png", alt: "Guestbook" },
     ],
     buttons: [
-      { text: "Cotizar", link: "tel:+5212345678", primary: true, icon: "fas fa-calculator" },
+      { text: "Cotizar", link: "tel:+525619241281", primary: true, icon: "fas fa-calculator" },
       { text: "Más Info", link: "/contacto", primary: false, icon: "fas fa-info-circle" },
     ],
   },

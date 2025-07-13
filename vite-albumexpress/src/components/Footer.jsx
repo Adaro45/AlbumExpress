@@ -8,8 +8,8 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-logo">
             <Link to="/">
-              <img src="/images/logo.png" alt="AlbumExpress Logo" />
-              <span>AlbumExpress</span>
+            <img src="/images/Isotipo.png" alt="AlbumExpress Logo" />
+              <img src="/images/letrablanca.png" alt="AlbumExpress Logo" />
             </Link>
             <p>Preservando tus recuerdos con estilo y calidad desde 2010.</p>
           </div>
@@ -21,18 +21,6 @@ const Footer = () => {
                 <li>
                   <Link to="/nosotros">Acerca de Nosotros</Link>
                 </li>
-                <li>
-                  <Link to="/blog">Blog</Link>
-                </li>
-                <li>
-                  <Link to="/preguntas-frecuentes">Preguntas Frecuentes</Link>
-                </li>
-                <li>
-                  <Link to="/politicas">Políticas de Privacidad</Link>
-                </li>
-                <li>
-                  <Link to="/terminos">Términos y Condiciones</Link>
-                </li>
               </ul>
             </div>
 
@@ -40,19 +28,19 @@ const Footer = () => {
               <h3>Productos</h3>
               <ul>
                 <li>
-                  <Link to="/productos/bodas">Álbumes de Boda</Link>
+                  <Link to="/productos/">Álbumes de Boda</Link>
                 </li>
                 <li>
-                  <Link to="/productos/quinceaneras">Álbumes de Quinceañera</Link>
+                  <Link to="/productos/">Álbumes de Quinceañera</Link>
                 </li>
                 <li>
-                  <Link to="/productos/familias">Álbumes Familiares</Link>
+                  <Link to="/productos/">Álbumes Familiares</Link>
                 </li>
                 <li>
-                  <Link to="/productos/profesionales">Álbumes Profesionales</Link>
+                  <Link to="/productos/">Álbumes Profesionales</Link>
                 </li>
                 <li>
-                  <Link to="/productos/accesorios">Accesorios</Link>
+                  <Link to="/productos/">Accesorios</Link>
                 </li>
               </ul>
             </div>
@@ -61,45 +49,15 @@ const Footer = () => {
               <h3>Contacto</h3>
               <ul className="contact-info">
                 <li>
-                  <i className="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad
+                  <i className="fas fa-map-marker-alt"></i> Donceles 90, Cuauhtémoc, 06020 Ciudad de México, CDMX
                 </li>
                 <li>
-                  <i className="fas fa-phone"></i> +52 123 456 7890
+                  <i className="fas fa-phone"></i> +52 (56) 1924 1281
                 </li>
                 <li>
-                  <i className="fas fa-envelope"></i> info@albumexpress.com
+                  <i className="fas fa-envelope"></i> info@albumexpress.mx
                 </li>
               </ul>
-              <div className="social-links">
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-instagram"></i>
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a
-                  href="https://pinterest.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-pinterest-p"></i>
-                </a>
-              </div>
             </div>
           </div>
         </div>

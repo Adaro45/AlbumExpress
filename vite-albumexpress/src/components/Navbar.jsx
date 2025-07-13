@@ -70,12 +70,12 @@ const Navbar = () => {
 
             {/* Botones de contacto en menú móvil */}
             <div className="mobile-contact-buttons">
-              <a href="tel:+5212345678" className="mobile-contact-btn phone">
+              <a href="tel:+525619241281" className="mobile-contact-btn phone">
                 <i className="fas fa-phone"></i>
                 <span>Llamar Ahora</span>
               </a>
               <a
-                href="https://wa.me/5212345678"
+                href="https://wa.me/525619241281"
                 className="mobile-contact-btn whatsapp"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -87,11 +87,11 @@ const Navbar = () => {
           </div>
 
           <div className="navbar-actions">
-            <a href="tel:+5212345678" className="contact-phone">
+            <a href="tel:+525619241281" className="contact-phone">
               <i className="fas fa-phone"></i>
               <span className="phone-text">Llamar</span>
             </a>
-            <a href="https://wa.me/5212345678" className="contact-whatsapp" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/525619241281" className="contact-whatsapp" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-whatsapp"></i>
               <span className="whatsapp-text">WhatsApp</span>
             </a>
@@ -107,11 +107,11 @@ const Navbar = () => {
 
       {/* Navegación rápida flotante */}
       <div className="quick-nav">
-        <a href="tel:+5212345678" className="quick-nav-btn quick-nav-phone" title="Llamar">
+        <a href="tel:+525619241281" className="quick-nav-btn quick-nav-phone" title="Llamar">
           <i className="fas fa-phone"></i>
         </a>
         <a
-          href="https://wa.me/5212345678"
+          href="https://wa.me/525619241281"
           className="quick-nav-btn quick-nav-whatsapp"
           target="_blank"
           rel="noopener noreferrer"

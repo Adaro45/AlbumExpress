@@ -11,13 +11,13 @@ const CTASection = () => {
             fotografías.
           </p>
           <div className="cta-buttons">
-            <a href="tel:+5212345678" className="btn btn-primary">
+            <a href="tel:+525619241281" className="btn btn-primary">
               <i className="fas fa-phone"></i> Llamar Ahora
             </a>
-            <a href="https://wa.me/5212345678" className="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/+525619241281" className="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-whatsapp"></i> WhatsApp
             </a>
-            <a href="mailto:ventas@albumexpress.com" className="btn btn-secondary">
+            <a href="mailto:info@albumexpress.mx" className="btn btn-secondary">
               <i className="fas fa-envelope"></i> Email
             </a>
           </div>
@@ -25,13 +25,13 @@ const CTASection = () => {
             <div className="contact-item">
               <i className="fas fa-phone"></i>
               <span>
-                <strong>Teléfono:</strong> +52 123 456 78
+                <strong>Teléfono:</strong> +52 (56) 1924 1281
               </span>
             </div>
             <div className="contact-item">
               <i className="fas fa-envelope"></i>
               <span>
-                <strong>Email:</strong> ventas@albumexpress.com
+                <strong>Email:</strong> info@albumexpress.mx
               </span>
             </div>
           </div>

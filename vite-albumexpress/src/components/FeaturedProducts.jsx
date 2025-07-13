@@ -31,12 +31,14 @@ const FeaturedProducts = () => {
               </div>
               <div className="product-info">
                 <h3>{product.name}</h3>
-                <p className="product-price">${product.price.toFixed(2)} MXN</p>
+                <p className="product-variant">{product.details.variant}</p>
                 <div className="product-actions">
                   <Link to={`/productos/${product.id}`} className="btn btn-primary">
                     Ver Detalles
                   </Link>
-                  <button className="btn btn-outline">Agregar</button>
+                  <a href="tel:+5212345678" className="btn btn-outline">
+                    Cotizar
+                  </a>
                 </div>
               </div>
             </div>
