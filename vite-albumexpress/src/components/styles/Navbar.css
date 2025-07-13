@@ -184,7 +184,7 @@
 }
 
 .quick-nav-whatsapp {
-  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  background: linear-gradient(135deg, #d35625 0%, #dd9f58 100%);
 }
 
 .quick-nav-btn:hover {
@@ -256,7 +256,7 @@
   }
 
   .mobile-contact-btn.whatsapp {
-    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    background: linear-gradient(135deg, #d35625 0%, #dd9f58 100%);
     box-shadow: var(--shadow-light);
   }
 

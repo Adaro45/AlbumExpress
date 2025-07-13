@@ -212,10 +212,6 @@ body {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
 }
 
-.quick-nav-whatsapp {
-  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-}
-
 .quick-nav-btn:hover {
   transform: scale(1.1);
   box-shadow: var(--shadow-strong);
