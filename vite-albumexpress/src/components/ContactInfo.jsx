@@ -14,9 +14,9 @@ const ContactInfo = () => {
           <div className="info-content">
             <h3>Dirección</h3>
             <p>
-              Av. Principal #123, Col. Centro
+              Calle Donceles 90, Cuauhtémoc,
               <br />
-              Ciudad de México, CP 12345
+              Ciudad de México, CP 06020
             </p>
           </div>
         </div>
@@ -27,8 +27,7 @@ const ContactInfo = () => {
           </div>
           <div className="info-content">
             <h3>Teléfono</h3>
-            <p>+52 (55) 1234 5678</p>
-            <p>+52 (55) 8765 4321</p>
+            <p>+52 (56) 1924 1281</p>
           </div>
         </div>
 
@@ -39,12 +38,11 @@ const ContactInfo = () => {
           <div className="info-content">
             <h3>Email</h3>
             <p>info@albumexpress.com</p>
-            <p>ventas@albumexpress.com</p>
           </div>
         </div>
       </div>
 
-      <div className="social-links">
+      {/* <div className="social-links">
         <h3>Síguenos</h3>
         <div className="social-icons">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -59,9 +57,9 @@ const ContactInfo = () => {
           <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
             <i className="fab fa-pinterest-p"></i>
           </a>
-        </div>
+        </div> */}
       </div>
-    </div>
+    // </div>
   )
 }
 

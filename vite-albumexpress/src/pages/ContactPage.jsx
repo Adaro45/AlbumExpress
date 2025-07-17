@@ -19,7 +19,7 @@ const ContactPage = () => {
       </div>
 
       <section className="contact-section section">
-        <div className="container">
+        <div className="container contac-grid-container">
           <div className="contact-grid">
             {/* Información de contacto principal */}
             <div className="contact-card main-contact">
@@ -82,10 +82,10 @@ const ContactPage = () => {
               <p>Visítanos en nuestro showroom</p>
               <div className="contact-details">
                 <p>
-                  <strong>Av. Principal #123</strong>
+                  <strong>Calle Donceles 90</strong>
                 </p>
-                <p>Col. Centro, Ciudad de México</p>
-                <p>CP 12345</p>
+                <p>Cuauhtémoc, Ciudad de México</p>
+                <p>CP 06020</p>
               </div>
               <a href="https://maps.app.goo.gl/rBF3oqXbZN4ir4y4A" className="btn btn-earth" target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-map-marker-alt"></i> Ver en Mapa

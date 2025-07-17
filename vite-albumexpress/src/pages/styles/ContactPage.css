@@ -27,7 +27,9 @@
   padding: 5rem 0;
   background: var(--secondary);
 }
-
+.contac-grid-container{
+  max-width: 90% !important;
+}
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
