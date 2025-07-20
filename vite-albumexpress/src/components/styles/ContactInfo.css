@@ -2,6 +2,10 @@
     background-color: var(--secondary);
     padding: 2rem;
     border-radius: 8px;
+    width: 20%;
+    margin: auto;
+    margin-left: 0;
+    background-color: transparent;
   }
   
   .contact-info h2 {

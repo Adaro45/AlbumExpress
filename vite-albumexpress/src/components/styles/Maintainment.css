@@ -1,0 +1,114 @@
+.maintainment-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.maintainment-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  color: var(--primary);
+  z-index: 1000;
+}
+.background-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: -1;
+}
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: transform 0.3s ease;
+}
+.navbar-logo{
+    width: 300px;
+    height: 100%;
+    margin-right: 0.5rem;
+    filter: drop-shadow(2px 2px 4px rgba(0, 70, 212, 0.1));
+  }
+  .navbar {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-ultra-light) 100%);
+    box-shadow: var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--gray);
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: row; 
+    gap: 1rem;
+    align-items: center;
+  }
+  
+.maintainment-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    background: linear-gradient(90deg, rgb(255, 255, 255) 29%, rgba(0, 71, 212, 0.5) 56%, rgba(58, 110, 255, 0.349) 82%, rgba(255, 140, 95, 0.493) 100%);
+}
+
+.maintainment-container > .contact-info {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+.navbar-logo{
+    width: 200px;
+    height: 100%;
+}
+.navbar {
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+.maintainment-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.maintainment-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.contact-info {
+width: 100% !important;
+  padding: 1rem !important;
+  text-align: center !important;
+}
+.background-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.maintainment-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    background: linear-gradient(180deg, rgb(255, 255, 255) 50%, rgba(0, 71, 212, 0.5) 56%, rgba(58, 110, 255, 0.349) 82%, rgba(255, 140, 95, 0.493) 100%);
+}
+
+}
